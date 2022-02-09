@@ -137,14 +137,42 @@ function evalAttentionChecks() {
   var task_colors = jsPsych.randomization.shuffle(['blue', 'black'])
   var global_shapes = ['s','h', 'o']
   var local_shapes = ['s','h','o']
-  var path = 'images/'
-  var prefix = '<div class = centerbox><img src = "https://sophiasdanial.github.io/gg-testing/"'
-  var postfix = '"</img></div>'
+  var prefix = '<div class = centerbox><img src = "https://sophiasdanial.github.io/gg-testing/images/'
+  var postfix = '.png>" </img></div>'
   var stim = []
   var data = []
   var images = []
-for (c = 0; c < task_colors.length; c++) {
- if (c = 0) {
+  function preload() {
+    for (var i = 0; i < arguments.length; i++) {
+        images[i] = new Image();
+        images[i].src = preload.arguments[i];
+    }
+}
+
+//-- usage --//
+preload(
+  'https://sophiasdanial.github.io/gg-testing/images/black_h_of_h.png',
+  'https://sophiasdanial.github.io/gg-testing/images/black_h_of_o.png', 
+  'https://sophiasdanial.github.io/gg-testing/images/black_h_of_s.png', 
+  'https://sophiasdanial.github.io/gg-testing/images/black_o_of_h.png',
+  'https://sophiasdanial.github.io/gg-testing/images/black_o_of_o.png',
+  'https://sophiasdanial.github.io/gg-testing/images/black_o_of_s.png',
+  'https://sophiasdanial.github.io/gg-testing/images/black_s_of_h.png',
+  'https://sophiasdanial.github.io/gg-testing/images/black_s_of_o.png',
+  'https://sophiasdanial.github.io/gg-testing/images/black_s_of_s.png',
+  'https://sophiasdanial.github.io/gg-testing/images/blue_h_of_h.png',
+  'https://sophiasdanial.github.io/gg-testing/images/blue_h_of_o.png',
+  'https://sophiasdanial.github.io/gg-testing/images/blue_h_of_s.png',
+  'https://sophiasdanial.github.io/gg-testing/images/blue_o_of_h.png',
+  'https://sophiasdanial.github.io/gg-testing/images/blue_o_of_o.png',
+  'https://sophiasdanial.github.io/gg-testing/images/blue_o_of_s.png',
+  'https://sophiasdanial.github.io/gg-testing/images/blue_s_of_h.png',
+  'https://sophiasdanial.github.io/gg-testing/images/blue_s_of_o.png',
+  'https://sophiasdanial.github.io/gg-testing/images/blue_s_of_s.png'
+)
+  
+  for (c = 0; c < task_colors.length; c++) {
+    if (c === 0) {
       condition = 'global'
       global_shape_length = 2
       local_shape_length = 3
@@ -155,10 +183,10 @@ for (c = 0; c < task_colors.length; c++) {
     }
     for (g = 0; g < global_shape_length; g++) {
       for (l = 0; l < local_shape_length; l++) {
-        stim.push(prefix + path + task_colors[c] + '_' + global_shapes[g] + '_of_' + local_shapes[l] +
-          '.png' + postfix)
-        images.push(path + task_colors[c] + '_' + global_shapes[g] + '_of_' + local_shapes[l] +
-          '.png')
+        stim.push(prefix + task_colors[c] + '_' + global_shapes[g] + '_of_' + local_shapes[l] +
+        '.png</img></div>')
+        images.push('https://sophiasdanial.github.io/gg-testing/images/' + task_colors[c] + '_' + global_shapes[g] + '_of_' + local_shapes[l]
+          + '.png')
         data.push({
           condition: condition,
           global_shape: global_shapes[g],
@@ -168,7 +196,7 @@ for (c = 0; c < task_colors.length; c++) {
     }
   }
   
-  jsPsych.pluginAPI.preloadImages(images)
+
   //Set up experiment stimulus order
   var practice_trials = makeTrialList(36, stim, data)  //36
   for (i = 0; i < practice_trials.length; i++) {
@@ -244,16 +272,16 @@ for (c = 0; c < task_colors.length; c++) {
       trial_id: "instruction"
     },
     pages: [
-      '<div class = centerbox><p class = block-text>In this experiment you will see blue or black letters made up of smaller letters, like the image below. All of the smaller letters will always be the same letter.</p><div class = instructionImgBox><img src =' + prefix + "images/black_s_of_o.png height = 200 width = 200></img></div></div>",
-      '<div class = centerbox><p class = block-text>Your task is to indicate whether the larger or smaller letters is an "H" or "S". If the letter is ' + prefix + path +
-      task_colors[0] + ' indicate whether the larger letter is an "H" or "S". If the letter is ' + prefix + path +
-      task_colors[1] +
+      '<div class = centerbox><p class = block-text>In this experiment you will see blue or black letters made up of smaller letters, like the image below. All of the smaller letters will always be the same letter.</p><div class = instructionImgBox> <img src= "https://sophiasdanial.github.io/gg-testing/images/blue_s_of_o.png" height = 200 width = 200></img></div></div>',
+      '<div class = centerbox><p class = block-text>Your task is to indicate whether the larger or smaller letters is an "H" or "S", depending on the color. If the letter is '+ prefix +
+      task_colors[0] + postfix + ' indicate whether the larger letter is an "H" or "S". If the letter is '+ prefix +
+      task_colors[1] + postfix +
       ' indicate whether the smaller letter is an "H" or "S".</p><p class = block-text>Use the "H" or "S" keys to indicate the letter.</p></div>',
-      '<div class = centerbox><p class = block-text>For instance, for the letter below you would press "S" because it is ' + prefix + path +
-      task_colors[1] +
-      ' which means you should respond based on the smaller shapes. If the shape was instead ' + prefix + path +
-      task_colors[0] +
-      ' you would press "H".</p><div class = instructionImgBox><img src = "images/' + prefix + path +
+      '<div class = centerbox><p class = block-text>For instance, for the letter below you would press "S" because it is '+ prefix +
+      task_colors[1] + postfix +
+      ' which means you should respond based on the smaller shapes. If the shape was instead '+ prefix +
+      task_colors[0] + postfix +
+      ' you would press "H".</p><div class = instructionImgBox><img src = ""https://sophiasdanial.github.io/gg-testing/images/' +
       task_colors[1] + '_h_of_s.png" height = 200 width = 200></img></div></div>'
     ],
     allow_keys: false,
@@ -372,4 +400,3 @@ for (c = 0; c < task_colors.length; c++) {
   local_global_letter_experiment.push(attention_node)
   local_global_letter_experiment.push(post_task_block)
   local_global_letter_experiment.push(end_block);
-  
