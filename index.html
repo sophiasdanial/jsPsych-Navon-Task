@@ -1,75 +1,61 @@
-<!DOCTYPE html><html class=''>
-<head>
-    <meta charset='UTF-8'>
-    <meta name="robots" content="noindex">
-    <title>Navon Task</title>
-    
-<link rel='stylesheet' type='text/css' href='https://sophiasdanial.github.io/gg-testing/jspsych.css'>
-<link rel='stylesheet' type='text/css' href='https://sophiasdanial.github.io/gg-testing/default_style.css'>
-<link rel='stylesheet' type='text/css' href='https://sophiasdanial.github.io/gg-testing/style.css'>
-</head>
+<!DOCTYPE html>
+<html>
 
+<head>
+  <title>Navon Task - Letters</title>
+  
+  <link rel="stylesheet" href="https://sophiasdanial.github.io/gg-testing/jspsych.css"></link>
+  <link rel='stylesheet' type='text/css' href='https://sophiasdanial.github.io/gg-testing/jspsych.css'>
+  <link rel='stylesheet' type='text/css' href='https://sophiasdanial.github.io/gg-testing/default_style.css'>
+  <link rel='stylesheet' type='text/css' href='https://sophiasdanial.github.io/gg-testing/style.css'>
+  
+</head>
 <body>
-<script src='https://sophiasdanial.github.io/gg-testing/js/jquery.min.js'></script>
-<script src="https://sophiasdanial.github.io/gg-testing/js/math.min.js"></script>
-<script src='https://sophiasdanial.github.io/gg-testing/js/jspsych/jspsych.js'></script>
-<script src='https://sophiasdanial.github.io/gg-testing/js/jspsych/plugins/jspsych-text.js'></script>
-<script src='https://sophiasdanial.github.io/gg-testing/js/jspsych/poldrack_plugins/jspsych-poldrack-text.js'></script>
-<script src='https://sophiasdanial.github.io/gg-testing/js/jspsych/poldrack_plugins/jspsych-poldrack-categorize.js'></script>
-<script src='https://sophiasdanial.github.io/gg-testing/js/jspsych/poldrack_plugins/jspsych-poldrack-instructions.js'></script>
-<script src='https://sophiasdanial.github.io/gg-testing/js/jspsych/plugins/jspsych-call-function.js'></script>
-<script src='https://sophiasdanial.github.io/gg-testing/js/jspsych/poldrack_plugins/jspsych-attention-check.js'></script>
-<script src='https://sophiasdanial.github.io/gg-testing/js/jspsych/poldrack_plugins/jspsych-poldrack-single-stim.js'></script>
-<script src='https://sophiasdanial.github.io/gg-testing/js/jspsych/plugins/jspsych-survey-text.js'></script>
-<script src='https://sophiasdanial.github.io/gg-testing/js/jspsych/poldrack_plugins/jspsych-single-stim-button.js'></script>
-<script src='https://sophiasdanial.github.io/gg-testing/js/jspsych/poldrack_plugins/poldrack_utils.js'></script>
-<script src='https://sophiasdanial.github.io/gg-testing/testingNavon.js'></script>
+<script src="https://sophiasdanial.github.io/gg-testing/js/jspsych/jspsych.js"></script>
+<script src="https://sophiasdanial.github.io/gg-testing/js/jspsych/plugins/jspsych-image-keyboard-response.js"></script>
+<script src='https://sophiasdanial.github.io/gg-testing/js/jspsych/plugins/jspsych-html-keyboard-response.js'></script>
+<script src="https://sophiasdanial.github.io/gg-testing/js/jspsych/plugins/jspsych-preload.js"></script>
+<script src="/Users/sophiastudent/Desktop/Dissertation/Qualtrics files/Testing Container/Navon-letters.js"></script>
+
+<style>
+  #display_stage_background {
+    width: 100vw;
+    background-color: white;
+    z-index: -1;
+  }
+
+  #display_stage {
+    position: fixed;
+    left: 1vw;
+    top: 1vh;
+    height: 98vh;
+    width: 98vw;
+    background-color: white;
+    box-shadow: 1px 1px 1px #999;
+    border-radius: 15px;
+    z-index: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+</style>
+
+<div id='display_stage_background'></div>
+<div id='display_stage'></div>
+
+</body>
 
 <script>
-$( document ).ready(function() {
-
-    jsPsych.init({
-             timeline: local_global_letter_experiment,
-             display_element: "getDisplayElement",
-             fullscreen: true,
-             on_trial_finish: function(data){
-               addID('local-global-letter')
-             },
-
-             on_finish: function(data){
-
-                 // Serialize the data
-                 var promise = new Promise(function(resolve, reject) {
-                     var data = jsPsych.data.dataAsJSON();
-                     resolve(data);
-                 })
-
-                 promise.then(function(data) {
-
-
-                     $.ajax({
-                         type: "POST",
-                         url: '/save',
-                         data: { "data": data },
-                         success: function(){ document.location = "/next" },
-                         dataType: "application/json",
-
-                         // Endpoint not running, local save
-                         error: function(err) {
-
-                             if (err.status == 200){
-                                 document.location = "/next";
-                             } else {
-                                 // If error, assue local save
-                                 jsPsych.data.localSave('local-global-letter_results.csv', 'csv');
-                             }
-                         }
-                     });
-                 })
-             }
-
-      });
-});
+  /*start experiment*/
+  jsPsych.init({
+    timeline: timeline,
+    override_safe_mode: true,
+    /* Change 1: Using `display_element` */
+    display_element: 'display_stage',
+    on_finish: function () {
+      jsPsych.data.displayData();
+    }
+    
+  });
 </script>
-</body>
+
 </html>
