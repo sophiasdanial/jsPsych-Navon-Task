@@ -4,10 +4,10 @@
 <head>
   <title>Navon Task - Letters</title>
   
-  <link rel="stylesheet" href="https://sophiasdanial.github.io/gg-testing/jspsych.css"></link>
-  <link rel='stylesheet' type='text/css' href='https://sophiasdanial.github.io/gg-testing/jspsych.css'>
-  <link rel='stylesheet' type='text/css' href='https://sophiasdanial.github.io/gg-testing/default_style.css'>
-  <link rel='stylesheet' type='text/css' href='https://sophiasdanial.github.io/gg-testing/style.css'>
+  <link rel="stylesheet" href="https://sophiasdanial.github.io/gg-testing/css/jspsych.css"></link>
+  <link rel='stylesheet' type='text/css' href='https://sophiasdanial.github.io/gg-testing/css/jspsych.css'>
+  <link rel='stylesheet' type='text/css' href='https://sophiasdanial.github.io/gg-testing/css/default_style.css'>
+  <link rel='stylesheet' type='text/css' href='https://sophiasdanial.github.io/gg-testing/css/style.css'>
   
 </head>
 <body>
@@ -15,7 +15,7 @@
 <script src="https://sophiasdanial.github.io/gg-testing/js/jspsych/plugins/jspsych-image-keyboard-response.js"></script>
 <script src='https://sophiasdanial.github.io/gg-testing/js/jspsych/plugins/jspsych-html-keyboard-response.js'></script>
 <script src="https://sophiasdanial.github.io/gg-testing/js/jspsych/plugins/jspsych-preload.js"></script>
-<script src="/Users/sophiastudent/Desktop/Dissertation/Qualtrics files/Testing Container/Navon-letters.js"></script>
+<script src="/Users/sophiastudent/Desktop/Dissertation/Qualtrics files/Testing Container/Navon-Task-Letters.js"></script>
 
 <style>
   #display_stage_background {
@@ -51,10 +51,9 @@
     override_safe_mode: true,
     /* Change 1: Using `display_element` */
     display_element: 'display_stage',
-    on_finish: function () {
+    on_finish: function (data) {
       jsPsych.data.displayData();
     }
-    
   });
 </script>
 
