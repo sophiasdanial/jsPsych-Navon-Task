@@ -5,13 +5,7 @@ var repo_site = 'https://sophiasdanial.github.io/gg-testing/images/'
 /* preload media */
 var preload = {
     type: 'preload',
-    stimulus: [
-        {letters: 'https://sophiasdanial.github.io/gg-testing/images/black_h_of_h.png'}, 
-        {letters: 'https://sophiasdanial.github.io/gg-testing/images/black_h_of_s.png'},
-        {letters: 'https://sophiasdanial.github.io/gg-testing/images/black_s_of_h.png'},
-        {letters: 'https://sophiasdanial.github.io/gg-testing/images/black_s_of_s.png'},
-        {cross: 'https://sophiasdanial.github.io/gg-testing/images/fixation_cross.png'}
-    ]
+    auto_preload: true
 }
 timeline.push(preload)
 
@@ -104,9 +98,9 @@ var global_array = {
     data: jsPsych.timelineVariable('data'),
     on_finish: function (data) {
         var correct = false;
-        if (data.global_shape == 'black_h' && data.key_press == 'h') {
+        if (data.global_shape == 'black_h' && data.response == 'h') {
             correct = true;
-        } else if (data.global_shape == 'black_s' && data.key_press == 's') {
+        } else if (data.global_shape == 'black_s' && data.response == 's') {
             correct = true;
         }
         data.correct = correct;
@@ -126,9 +120,9 @@ var local_array = {
     data: jsPsych.timelineVariable('data'),
     on_finish: function (data) {
         var correct = false;
-        if (data.local_shape == 'h' && data.key_press == 'h') {
+        if (data.local_shape == 'h' && data.response == 'h') {
             correct = true;
-        } else if (data.local_shape == 's' && data.key_press == 's') {
+        } else if (data.local_shape == 's' && data.response == 's') {
             correct = true;
         }
         data.correct = correct;
@@ -141,12 +135,7 @@ var local_array = {
 ///////////////// Global block /////////////////////
 var global_set = {
     timeline: [fixation, global_array],
-    timeline_variables: [
-        {letters: 'https://sophiasdanial.github.io/gg-testing/images/black_h_of_h.png'}, 
-        {letters: 'https://sophiasdanial.github.io/gg-testing/images/black_h_of_s.png'},
-        {letters: 'https://sophiasdanial.github.io/gg-testing/images/black_s_of_h.png'},
-        {letters: 'https://sophiasdanial.github.io/gg-testing/images/black_s_of_s.png'}
-    ],
+    timeline_variables: test_stimuli,
     sample: {
         type: 'fixed-repetitions',
         size: 4
@@ -162,12 +151,7 @@ var global_block = {
 ///////////////// Local block /////////////////////
 var local_set = {
     timeline: [fixation, local_array],
-    timeline_variables: [
-        {letters: 'https://sophiasdanial.github.io/gg-testing/images/black_h_of_h.png'}, 
-        {letters: 'https://sophiasdanial.github.io/gg-testing/images/black_h_of_s.png'},
-        {letters: 'https://sophiasdanial.github.io/gg-testing/images/black_s_of_h.png'},
-        {letters: 'https://sophiasdanial.github.io/gg-testing/images/black_s_of_s.png'}
-    ],
+    timeline_variables: test_stimuli,
     sample: {
         type: 'fixed-repetitions',
         size: 4
