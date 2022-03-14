@@ -52,7 +52,7 @@ var test_stimuli = [
 var welcome_block = {
     type: 'html-keyboard-response',
     stimulus: 
-    '<div style="text-align:center;line-height:0.7"><p>Welcome to Part Three.</p><br>\
+    '<div style="text-align:center"><p>Welcome to Part Three.</p><br>\
     <p>This is a <strong>timed</strong> activity. Please try to be as <strong>fast</strong> and <strong>accurate</strong> as possible.</p><br><br>\
     <p>Similar to Part One, each trial will present a large letter made out of smaller letters.</p>\
     <p>For example, you may see a large <strong>H</strong> made out of smaller <strong>S</strong>`s. Or you may see a large <strong>S</strong> made out of smaller <strong>H</strong>`s.</p><br><br>\
