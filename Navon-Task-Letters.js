@@ -94,7 +94,7 @@ var global_array = {
     post_trial_gap: 300,
     stimulus_height: 210,
     maintain_aspect_ratio: true,
-    stimulus: jsPsych.timelineVariable('letters'),
+    stimulus: jsPsych.timelineVariable('stimulus'),
     data: jsPsych.timelineVariable('data'),
     on_finish: function (data) {
         var correct = false;
@@ -116,7 +116,7 @@ var local_array = {
     post_trial_gap: 300,
     stimulus_height: 210,
     maintain_aspect_ratio: true,
-    stimulus: jsPsych.timelineVariable('letters'),
+    stimulus: jsPsych.timelineVariable('stimulus'),
     data: jsPsych.timelineVariable('data'),
     on_finish: function (data) {
         var correct = false;
