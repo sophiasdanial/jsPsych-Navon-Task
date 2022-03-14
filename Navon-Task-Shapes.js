@@ -5,13 +5,7 @@ var repo_site = 'https://sophiasdanial.github.io/gg-testing/images/'
 /* preload media */
 var preload = {
     type: 'preload',
-    stimulus: [
-        {shapes: 'https://sophiasdanial.github.io/gg-testing/images/black_XofXs.png'}, 
-        {shapes: 'https://sophiasdanial.github.io/gg-testing/images/black_Xofcircles.png'},
-        {shapes: 'https://sophiasdanial.github.io/gg-testing/images/black_circleofXs.png'},
-        {shapes: 'https://sophiasdanial.github.io/gg-testing/images/black_circleofcircles.png'},
-        {cross: 'https://sophiasdanial.github.io/gg-testing/images/fixation_cross.png'}
-    ]
+    auto_preload: true
 }
 timeline.push(preload)
 
@@ -19,32 +13,32 @@ timeline.push(preload)
 
 var test_stimuli = [
     {
-      stimulus: repo_site + "black_XofXs.png",
+      stimulus: "https://sophiasdanial.github.io/gg-testing/images/black_XofXs.png",
       data: { 
-          stim_type: 'congruent',
-          global_shape: 'black_X',
-          local_shape: 'Xs'}
+        stim_type: 'congruent',
+        global_shape: 'black_X',
+        local_shape: 'Xs'}
     },
     {
-      stimulus: repo_site + "black_circleofcircles.png",
+      stimulus: "https://sophiasdanial.github.io/gg-testing/images/black_circleofcircles.png",
       data: {  
-          stim_type: 'congruent',
-          global_shape: 'black_circle',
-          local_shape: 'circles'}
+        stim_type: 'congruent',
+        global_shape: 'black_circle',
+        local_shape: 'circles'}
     },
     {
-      stimulus: repo_site + "black_Xofcircles.png",
+      stimulus: "https://sophiasdanial.github.io/gg-testing/images/black_circleofXs.png",
       data: { 
-          stim_type: 'incongruent',
-          global_shape: 'black_X',
-          local_shape: 'circles'}
+        stim_type: 'incongruent',
+        global_shape: 'black_circle',
+        local_shape: 'Xs'}
     },
     {
-      stimulus: repo_site + "black_circleofXs.png",
+      stimulus: "https://sophiasdanial.github.io/gg-testing/images/black_Xofcircles.png",
       data: { 
-          stim_type: 'incongruent',
-          global_shape: 'black_circle',
-          local_shape: 'Xs'}
+        stim_type: 'incongruent',
+        global_shape: 'black_X',
+        local_shape: 'circles'}
     }
 ];
 
@@ -92,51 +86,59 @@ var fixation = {
 /*define conditions*/
 
 var global_array = {
-    type: 'categorize-image',
+    type: 'image-keyboard-response',
     choices: ['x', 'o'],
     stimulus_duration: 50,
-    trial_duration: 2500,
-    post_trial_gap: 300,
+    trial_duration: 4000,
     stimulus_height: 210,
     maintain_aspect_ratio: true,
-    stimulus: jsPsych.timelineVariable('letters'),
+    stimulus: jsPsych.timelineVariable('stimulus'),
     data: jsPsych.timelineVariable('data'),
     on_finish: function (data) {
         var correct = false;
-        if (data.global_shape == 'black_h' && data.key_press == 'h') {
+        if (data.global_shape == 'black_circle' && data.response == 'o') {
             correct = true;
-        } else if (data.global_shape == 'black_s' && data.key_press == 's') {
+        } else if (data.global_shape == 'black_X' && data.response == 'x') {
             correct = true;
         }
         data.correct = correct;
-    },
-    correct_text: '<p style="font-size:100px;color:red"><strong>Correct!</strong></p>',
-    incorrect_text: '<p style="font-size:100px;color:green"><strong>Incorrect!</strong></p>',
-    timeout_message: '<p style="font-size:100px;color:orange"><strong>Too slow! Please respond faster!</strong></p>',
+    }
+
 }
 
 var local_array = {
-    type: 'categorize-image',
+    type: 'image-keyboard-response',
     choices: ['x', 'o'],
     stimulus_duration: 50,
-    trial_duration: 2500,
-    post_trial_gap: 300,
+    trial_duration: 4000,
     stimulus_height: 210,
     maintain_aspect_ratio: true,
-    stimulus: jsPsych.timelineVariable('letters'),
+    stimulus: jsPsych.timelineVariable('stimulus'),
     data: jsPsych.timelineVariable('data'),
     on_finish: function (data) {
         var correct = false;
-        if (data.local_shape == 'h' && data.key_press == 'h') {
+        if (data.local_shape == 'Xs' && data.response == 'x') {
             correct = true;
-        } else if (data.local_shape == 's' && data.key_press == 's') {
+        } else if (data.local_shape == 'circles' && data.response == 'o') {
             correct = true;
         }
         data.correct = correct;
-    },
-    correct_text: '<p style="font-size:100px;color:red"><strong>Correct!</strong></p>',
-    incorrect_text: '<p style="font-size:100px;color:green"><strong>Incorrect!</strong></p>',
-    timeout_message: '<p style="font-size:100px;color:orange"><strong>Too slow! Please respond faster!</strong></p>',
+    }
+}
+
+var feedback = {
+    type: 'html-keyboard-response',
+    trial_duration: 700,
+    post_trial_gap: 300,
+    choices: jsPsych.NO_KEYS,
+    stimulus: function(){
+      var last_trial_correct = jsPsych.data.get().last(1).values()[0].correct;
+      if(last_trial_correct){
+        return '<p style="font-size:50px;color:green"><strong>Correct!</strong></p>'; 
+      } else {
+        return '<p style="font-size:50px;color:red"><strong>Incorrect!</strong></p>'; 
+      }
+    }
 }
 
 /* test */
@@ -144,13 +146,8 @@ var local_array = {
 
 ///////////////// Global block /////////////////////
 var global_set = {
-    timeline: [fixation, global_array],
-    timeline_variables: [
-        {shapes: 'https://sophiasdanial.github.io/gg-testing/images/black_XofXs.png'}, 
-        {shapes: 'https://sophiasdanial.github.io/gg-testing/images/black_Xofcircles.png'},
-        {shapes: 'https://sophiasdanial.github.io/gg-testing/images/black_circleofXs.png'},
-        {shapes: 'https://sophiasdanial.github.io/gg-testing/images/black_circleofcircles.png'}
-    ],
+    timeline: [fixation, global_array, feedback],
+    timeline_variables: test_stimuli,
     sample: {
         type: 'fixed-repetitions',
         size: 4
@@ -165,13 +162,8 @@ var global_block = {
 }
 ///////////////// Local block /////////////////////
 var local_set = {
-    timeline: [fixation, local_array],
-    timeline_variables: [
-        {shapes: 'https://sophiasdanial.github.io/gg-testing/images/black_XofXs.png'}, 
-        {shapes: 'https://sophiasdanial.github.io/gg-testing/images/black_Xofcircles.png'},
-        {shapes: 'https://sophiasdanial.github.io/gg-testing/images/black_circleofXs.png'},
-        {shapes: 'https://sophiasdanial.github.io/gg-testing/images/black_circleofcircles.png'}
-    ],
+    timeline: [fixation, local_array, feedback],
+    timeline_variables: test_stimuli,
     sample: {
         type: 'fixed-repetitions',
         size: 4
