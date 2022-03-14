@@ -33,14 +33,14 @@ var test_stimuli = [
           local_shape: 's'}
     },
     {
-      stimulus: repo_site + "black_h_of_s",
+      stimulus: repo_site + "black_h_of_s.png",
       data: { 
           stim_type: 'incongruent',
           global_shape: 'black_h',
           local_shape: 's'}
     },
     {
-      stimulus: repo_site + "black_s_of_h",
+      stimulus: repo_site + "black_s_of_h.png",
       data: { 
           stim_type: 'incongruent',
           global_shape: 'black_s',
