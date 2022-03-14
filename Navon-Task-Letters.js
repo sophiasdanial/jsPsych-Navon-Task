@@ -65,7 +65,7 @@ var welcome_block = {
 var end_block = {
     type: 'html-keyboard-response',
     stimulus:
-    '<div style="text-align:center;line-height:0.7"><p>Congratulations! You have completed Part Three.<br>Press any button to move on to your debriefing</p>'
+    '<div style="text-align:center"><p>Congratulations! You have completed Part Three.<br>Press any button to move on to your debriefing</p>'
 }
 
 var global_instructions_block = {
