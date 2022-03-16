@@ -157,7 +157,8 @@ var global_set = {
 var global_block = {
     timeline: [global_instructions_block, global_set],
     data: {
-        test_part: 'test'
+        test_part: 'test',
+        test_type: 'global'
     }
 }
 ///////////////// Local block /////////////////////
@@ -173,7 +174,8 @@ var local_set = {
 var local_block = {
     timeline: [local_instructions_block, local_set],
     data: {
-        test_part: 'test'
+        test_part: 'test',
+        test_type: 'local'
     }
 }
 
@@ -188,11 +190,27 @@ timeline.push(end_block);
 var total_trials = jsPsych.data.get().filter({
     test_part: 'test'
 }).count();
-var congruent_rt = Math.round(jsPsych.data.get().filter({
+var correct_trials = total_trials.filter({
+    correct: true
+});
+var rt = Math.round(correct_trials.select('rt').mean());
+var global_congruent_rt = Math.round(jsPsych.data.get().filter({
     correct: true,
-    stim_type: 'congruent'
+    stim_type: 'congruent',
+    test_type: 'global'
 }).select('rt').mean());
-var incongruent_rt = Math.round(jsPsych.data.get().filter({
+var local_congruent_rt = Math.round(jsPsych.data.get().filter({
     correct: true,
-    stim_type: 'incongruent'
+    stim_type: 'congruent',
+    test_type: 'local'
+}).select('rt').mean());
+var global_incongruent_rt = Math.round(jsPsych.data.get().filter({
+    correct: true,
+    stim_type: 'incongruent',
+    test_type: 'global'
+}).select('rt').mean());
+var local_incongruent_rt = Math.round(jsPsych.data.get().filter({
+    correct: true,
+    stim_type: 'incongruent',
+    test_type: 'local'
 }).select('rt').mean());
