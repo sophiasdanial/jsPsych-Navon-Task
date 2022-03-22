@@ -190,9 +190,10 @@ timeline.push(end_block);
 var total_trials = jsPsych.data.get().filter({
     test_part: 'test'
 }).count();
-var correct_trials = total_trials.filter({
+var correct_trials = jsPsych.data.get().filter({
+    test_part: 'test',
     correct: true
-});
+}).count();
 var rt = Math.round(correct_trials.select('rt').mean());
 var global_congruent_rt = Math.round(jsPsych.data.get().filter({
     correct: true,
