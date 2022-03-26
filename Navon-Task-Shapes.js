@@ -1,10 +1,12 @@
 //* based on jsPsych v6.x 
 /* Navon Task - Shapes WITH FEEDBACK*/
 var timeline = [];
-var repo_site = 'https://sophiasdanial.github.io/gg-testing/images/'
+var repo_site = 'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/'
 /* preload media */
 var preload = {
     type: 'preload',
+    show_progress_bar: true,
+    message: 'Loading images... Please wait',
     auto_preload: true
 }
 timeline.push(preload)
@@ -13,28 +15,28 @@ timeline.push(preload)
 
 var test_stimuli = [
     {
-      stimulus: "https://sophiasdanial.github.io/gg-testing/images/black_XofXs.png",
+      stimulus: repo_site + "black_XofXs.png",
       data: { 
         stim_type: 'congruent',
         global_shape: 'black_X',
         local_shape: 'Xs'}
     },
     {
-      stimulus: "https://sophiasdanial.github.io/gg-testing/images/black_circleofcircles.png",
+      stimulus: repo_site + "black_circleofcircles.png",
       data: {  
         stim_type: 'congruent',
         global_shape: 'black_circle',
         local_shape: 'circles'}
     },
     {
-      stimulus: "https://sophiasdanial.github.io/gg-testing/images/black_circleofXs.png",
+      stimulus: repo_site + "black_circleofXs.png",
       data: { 
         stim_type: 'incongruent',
         global_shape: 'black_circle',
         local_shape: 'Xs'}
     },
     {
-      stimulus: "https://sophiasdanial.github.io/gg-testing/images/black_Xofcircles.png",
+      stimulus: repo_site + "black_Xofcircles.png",
       data: { 
         stim_type: 'incongruent',
         global_shape: 'black_X',
@@ -76,7 +78,7 @@ var local_instructions_block = {
 
 var fixation = {
     type: 'image-keyboard-response',
-    stimulus: 'https://sophiasdanial.github.io/gg-testing/images/fixation_cross.png',
+    stimulus: 'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/fixation_cross.png',
     choices: jsPsych.NO_KEYS,
     trial_duration: 500,
     data: {
