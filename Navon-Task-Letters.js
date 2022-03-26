@@ -1,10 +1,12 @@
 //* based on jsPsych v6.x 
 /* Navon Task - Letters*/
 var timeline = [];
-var repo_site = 'https://sophiasdanial.github.io/gg-testing/images/'
+var repo_site = 'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/'
 /* preload media */
 var preload = {
     type: 'preload',
+    show_progress_bar: true,
+    message: 'Loading images... Please wait',
     auto_preload: true
 }
 timeline.push(preload)
@@ -77,7 +79,7 @@ var local_instructions_block = {
 
 var fixation = {
     type: 'image-keyboard-response',
-    stimulus: 'https://sophiasdanial.github.io/gg-testing/images/fixation_cross.png',
+    stimulus: 'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/fixation_cross.png',
     choices: jsPsych.NO_KEYS,
     trial_duration: 500,
     data: {
