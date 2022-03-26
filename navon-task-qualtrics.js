@@ -11,7 +11,7 @@ Qualtrics.SurveyEngine.addOnload(function () {
         task_github + "js/jspsych/jspsych.js",
         task_github + "js/jspsych/plugins/jspsych-html-keyboard-response.js",
         task_github + "js/jspsych/plugins/jspsych-image-keyboard-response.js",
-		task_github + "js/jspsych/plugins/jspsych-preload.js",
+	task_github + "js/jspsych/plugins/jspsych-preload.js",
         task_github + "Navon-Task-Shapes.js"
     ];
 
