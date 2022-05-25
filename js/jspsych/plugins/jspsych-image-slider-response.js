@@ -1,5 +1,6 @@
 /**
- * jspsych-image-slider-response
+ * jspsych-image-slider-response 
+ * for JsPsych 6.x
  * a jspsych plugin for free response survey questions
  *
  * Josh de Leeuw
@@ -146,7 +147,7 @@ jsPsych.plugins['image-slider-response'] = (function() {
       // create wrapper div, canvas element and image
       var content_wrapper = document.createElement('div');
       content_wrapper.id = "jspsych-image-slider-response-wrapper";
-      content_wrapper.style.margin = "100px 0px";
+      content_wrapper.style.margin = "30px 0px";
       var canvas = document.createElement("canvas");
       canvas.id = "jspsych-image-slider-response-stimulus";
       canvas.style.margin = 0;
