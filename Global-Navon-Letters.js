@@ -170,9 +170,13 @@ var local_block = {
 }
 
 /* set conditional timelines */
+var global_start_node = {
+    timeline: [global_block, local_block],
+    repetitions: 5
+}
+
 timeline.push(welcome_block);
-timeline.push(local_block);
-timeline.push(global_block);
+timeline.push(global_start_node);
 timeline.push(end_block);
 
 /* define results */
