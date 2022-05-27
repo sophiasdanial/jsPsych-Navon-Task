@@ -1,5 +1,5 @@
 //* based on jsPsych v6.x 
-/* Navon Task - Shapes WITH FEEDBACK*/
+/* Navon Task (Local Condition) - Shapes WITH FEEDBACK*/
 var timeline = [];
 var repo_site = 'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/'
 /* preload media */
@@ -63,12 +63,6 @@ var end_block = {
     '<div style="text-align:center"><p>Congratulations! You have completed Part One.<br>Press any button to move on to the next part</p>'
 }
 
-var global_instructions_block = {
-    type: 'html-keyboard-response',
-    stimulus: '<p>For the following trials, please select <i>only</i> the <strong>large</strong> shape</p><br><br><p>Press any key to continue</p>',
-    post_trial_gap: 2000
-}
-
 var local_instructions_block = {
     type: 'html-keyboard-response',
     stimulus: '<p>For the following trials, please select <i>only</i> the <strong>small</strong> shape</p><br><br><p>Press any key to continue</p>',
@@ -86,27 +80,6 @@ var fixation = {
     }
 }
 /*define conditions*/
-
-var global_array = {
-    type: 'image-keyboard-response',
-    choices: ['x', 'o'],
-    stimulus_duration: 50,
-    trial_duration: 4000,
-    stimulus_height: 210,
-    maintain_aspect_ratio: true,
-    stimulus: jsPsych.timelineVariable('stimulus'),
-    data: jsPsych.timelineVariable('data'),
-    on_finish: function (data) {
-        var correct = false;
-        if (data.global_shape == 'black_circle' && data.response == 'o') {
-            correct = true;
-        } else if (data.global_shape == 'black_X' && data.response == 'x') {
-            correct = true;
-        }
-        data.correct = correct;
-    }
-
-}
 
 var local_array = {
     type: 'image-keyboard-response',
@@ -144,25 +117,7 @@ var feedback = {
 }
 
 /* test */
-//set global local blocks
 
-///////////////// Global block /////////////////////
-var global_set = {
-    timeline: [fixation, global_array, feedback],
-    timeline_variables: test_stimuli,
-    sample: {
-        type: 'fixed-repetitions',
-        size: 4
-    }
-}
-
-var global_block = {
-    timeline: [global_instructions_block, global_set],
-    data: {
-        test_part: 'test',
-        test_type: 'global'
-    }
-}
 ///////////////// Local block /////////////////////
 var local_set = {
     timeline: [fixation, local_array, feedback],
@@ -178,13 +133,13 @@ var local_block = {
     data: {
         test_part: 'test',
         test_type: 'local'
-    }
+    },
+    repetitions: 10
 }
 
 /* set conditional timelines */
 timeline.push(welcome_block);
 timeline.push(local_block);
-timeline.push(global_block);
 timeline.push(end_block);
 
 /* define results */
