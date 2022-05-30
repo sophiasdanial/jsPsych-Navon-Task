@@ -55,7 +55,8 @@ var welcome_block = {
     <p>You will be asked to identify either the large letter or the smaller letter.</p><br><br>\
     <p>If you select <strong>H</strong>, please press the <strong>H</strong> button on your keyboard.</p>\
     <p>If you select <strong>S</strong>, please press the <strong>S</strong> button on your keyboard.</p><br><br>\
-    <p><i>Press any button to continue</i>'
+    <p><i>Press any button to continue</i>',
+    post_trial_gap: 3000
 }
 
 var end_block = {

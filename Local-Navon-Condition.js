@@ -54,7 +54,8 @@ var welcome_block = {
     <p>You will be asked to identify either the large shape or the smaller shape.</p><br><br>\
     <p>If you select <strong>X</strong>, please press the <strong>X</strong> button on your keyboard.</p>\
     <p>If you select <strong>O</strong>, please press the <strong>O</strong> button on your keyboard.</p><br><br>\
-    <p><i>Press any button to continue</i>'
+    <p><i>Press any button to continue</i>',
+    post_trial_gap: 3000
 }
 
 var end_block = {
