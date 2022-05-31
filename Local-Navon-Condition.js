@@ -138,7 +138,7 @@ var local_block = {
 }
 
 /* set conditional timelines */
-timeline.push(welcome_block);
+timeline.push(welcome_block); 
 timeline.push(local_block);
 timeline.push(end_block);
 
