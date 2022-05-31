@@ -145,7 +145,7 @@ var global_set = {
 }
 
 var global_block = {
-    timeline: [global_instructions_block, global_set],
+    timeline: [preload, global_instructions_block, global_set],
     data: {
         test_part: 'test',
         test_type: 'global'
@@ -162,7 +162,7 @@ var local_set = {
 }
 
 var local_block = {
-    timeline: [local_instructions_block, local_set],
+    timeline: [preload, local_instructions_block, local_set],
     data: {
         test_part: 'test',
         test_type: 'local'
@@ -178,7 +178,6 @@ var global_start_node = {
 }
 
 timeline.push(welcome_block);
-timeline.push(preload);
 timeline.push(global_start_node);
 timeline.push(end_block);
 
