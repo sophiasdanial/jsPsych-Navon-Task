@@ -129,7 +129,7 @@ var local_set = {
 }
 
 var local_block = {
-    timeline: [local_instructions_block, local_set],
+    timeline: [preload, local_instructions_block, local_set],
     data: {
         test_part: 'test',
         test_type: 'local'
@@ -139,7 +139,6 @@ var local_block = {
 
 /* set conditional timelines */
 timeline.push(welcome_block);
-timeline.push(preload);
 timeline.push(local_block);
 timeline.push(end_block);
 
