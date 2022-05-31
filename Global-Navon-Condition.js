@@ -9,7 +9,6 @@ var preload = {
     message: 'Loading images... Please wait',
     auto_preload: true
 }
-timeline.push(preload)
 
 /* define stimuli */
 
@@ -142,6 +141,7 @@ var global_block = {
 
 /* set conditional timelines */
 timeline.push(welcome_block);
+timeline.push(preload);
 timeline.push(global_block);
 timeline.push(end_block);
 
@@ -153,14 +153,14 @@ var total_trials = jsPsych.data.get().filter({
 var correct_trials = total_trials.filter({
     correct: true
 });
-var rt = Math.round(correct_trials.select('rt').mean());
-var global_congruent_rt = Math.round(jsPsych.data.get().filter({
+var rt = correct_trials.select('rt').mean();
+var global_congruent_rt = jsPsych.data.get().filter({
     correct: true,
     stim_type: 'congruent',
     test_type: 'global'
-}).select('rt').mean());
-var global_incongruent_rt = Math.round(jsPsych.data.get().filter({
+}).select('rt').mean();
+var global_incongruent_rt = jsPsych.data.get().filter({
     correct: true,
     stim_type: 'incongruent',
     test_type: 'global'
-}).select('rt').mean());
+}).select('rt').mean();

@@ -9,7 +9,6 @@ var preload = {
     message: 'Loading images... Please wait',
     auto_preload: true
 }
-timeline.push(preload)
 
 /* define stimuli */
 
@@ -173,10 +172,13 @@ var local_block = {
 /* set conditional timelines */
 var local_start_node = {
     timeline: [local_block, global_block],
+    timeline_variables: test_stimuli,
+    randomize_order: true,
     repetitions: 5
 }
 
 timeline.push(welcome_block);
+timeline.push(preload);
 timeline.push(local_start_node);
 timeline.push(end_block);
 
@@ -188,24 +190,24 @@ var total_trials = jsPsych.data.get().filter({
 var correct_trials = total_trials.filter({
     correct: true
 });
-var rt = Math.round(correct_trials.select('rt').mean());
-var global_congruent_rt = Math.round(jsPsych.data.get().filter({
+var rt = correct_trials.select('rt').mean();
+var global_congruent_rt = jsPsych.data.get().filter({
     correct: true,
     stim_type: 'congruent',
     test_type: 'global'
-}).select('rt').mean());
-var local_congruent_rt = Math.round(jsPsych.data.get().filter({
+}).select('rt').mean();
+var local_congruent_rt = jsPsych.data.get().filter({
     correct: true,
     stim_type: 'congruent',
     test_type: 'local'
-}).select('rt').mean());
-var global_incongruent_rt = Math.round(jsPsych.data.get().filter({
+}).select('rt').mean();
+var global_incongruent_rt = jsPsych.data.get().filter({
     correct: true,
     stim_type: 'incongruent',
     test_type: 'global'
-}).select('rt').mean());
-var local_incongruent_rt = Math.round(jsPsych.data.get().filter({
+}).select('rt').mean();
+var local_incongruent_rt = jsPsych.data.get().filter({
     correct: true,
     stim_type: 'incongruent',
     test_type: 'local'
-}).select('rt').mean());
+}).select('rt').mean();

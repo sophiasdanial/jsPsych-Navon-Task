@@ -11,8 +11,8 @@ Qualtrics.SurveyEngine.addOnload(function () {
         task_github + "js/jspsych/jspsych.js",
         task_github + "js/jspsych/plugins/jspsych-html-keyboard-response.js",
         task_github + "js/jspsych/plugins/jspsych-image-keyboard-response.js",
-	task_github + "js/jspsych/plugins/jspsych-preload.js",
-        task_github + "Navon-Task-Shapes.js"
+	    task_github + "js/jspsych/plugins/jspsych-preload.js",
+        task_github + "Local-Navon-Condition.js"
     ];
 
     function loadScript(idx) {
@@ -46,27 +46,27 @@ Qualtrics.SurveyEngine.addOnload(function () {
                 var correct_trials = total_trials.filter({
                     correct: true
                 });
-                var rt = Math.round(correct_trials.select('rt').mean());
-                var global_congruent_rt = Math.round(jsPsych.data.get().filter({
+                var rt = correct_trials.select('rt').mean();
+                var global_congruent_rt = jsPsych.data.get().filter({
                     correct: true,
                     stim_type: 'congruent',
                     test_type: 'global'
-                }).select('rt').mean());
-                var local_congruent_rt = Math.round(jsPsych.data.get().filter({
+                }).select('rt').mean();
+                var local_congruent_rt = jsPsych.data.get().filter({
                     correct: true,
                     stim_type: 'congruent',
                     test_type: 'local'
-                }).select('rt').mean());
-                var global_incongruent_rt = Math.round(jsPsych.data.get().filter({
+                }).select('rt').mean();
+                var global_incongruent_rt = jsPsych.data.get().filter({
                     correct: true,
                     stim_type: 'incongruent',
                     test_type: 'global'
-                }).select('rt').mean());
-                var local_incongruent_rt = Math.round(jsPsych.data.get().filter({
+                }).select('rt').mean();
+                var local_incongruent_rt = jsPsych.data.get().filter({
                     correct: true,
                     stim_type: 'incongruent',
                     test_type: 'local'
-                }).select('rt').mean());
+                }).select('rt').mean();
 
                 Qualtrics.SurveyEngine.setEmbeddedData("rt", rt);
                 Qualtrics.SurveyEngine.setEmbeddedData("global_congruent_rt", global_congruent_rt);
