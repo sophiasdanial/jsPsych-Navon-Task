@@ -7,7 +7,6 @@ var preload = {
     type: 'preload',
     show_progress_bar: true,
     message: 'Loading images... Please wait',
-    auto_preload: true,
     images: test_stimuli
 }
 
@@ -215,11 +214,7 @@ var global_set = {
 
 var global_block = {
     timeline: [global_instructions_block, global_set],
-    data: {
-        test_part: 'test',
-        test_type: 'global'
-    },
-    repetitions: 10
+    timeline_variables: test_stimuli
 }
 
 /* set conditional timelines */
