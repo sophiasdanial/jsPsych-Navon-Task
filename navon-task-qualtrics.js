@@ -70,6 +70,22 @@ Qualtrics.SurveyEngine.addOnload(function () {
                     stim_type: 'incongruent',
                     test_type: 'local'
                 }).select('rt').mean());
+                var XofX = jsPsych.data.get().filter({
+                    global_shape: 'black_X',
+                    local_shape: 'Xs'
+                }).select('rt').values;
+                var XofO = jsPsych.data.get().filter({
+                    global_shape: 'black_X',
+                    local_shape: 'circles'
+                }).select('rt').values;
+                var OofO = jsPsych.data.get().filter({
+                    global_shape: 'black_circle',
+                    local_shape: 'circles'
+                }).select('rt').values;
+                var OofX = jsPsych.data.get().filter({
+                    global_shape: 'black_circles',
+                    local_shape: 'Xs'
+                }).select('rt').values;
 
                 Qualtrics.SurveyEngine.setEmbeddedData("rt", rt);
                 Qualtrics.SurveyEngine.setEmbeddedData("error", wrong_trials);
@@ -77,6 +93,10 @@ Qualtrics.SurveyEngine.addOnload(function () {
                 Qualtrics.SurveyEngine.setEmbeddedData("local_congruent_rt", local_congruent_rt);
                 Qualtrics.SurveyEngine.setEmbeddedData("global_incongruent_rt", global_incongruent_rt);
                 Qualtrics.SurveyEngine.setEmbeddedData("local_incongruent_rt", local_incongruent_rt);
+                Qualtrics.SurveyEngine.setEmbeddedData("XofX", XofX);
+                Qualtrics.SurveyEngine.setEmbeddedData("XofO", XofO);
+                Qualtrics.SurveyEngine.setEmbeddedData("OofO", OofO);
+                Qualtrics.SurveyEngine.setEmbeddedData("OofX", OofX);
               
                 jQuery('#display_stage').remove();
                 jQuery('#display_stage_background').remove();

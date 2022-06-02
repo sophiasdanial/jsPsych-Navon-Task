@@ -14,32 +14,116 @@ var preload = {
 
 var test_stimuli = [
     {
-      stimulus: repo_site + "black_XofXs.png",
+      stimulus: repo_site + "XofX_topL.png",
       data: { 
         stim_type: 'congruent',
         global_shape: 'black_X',
         local_shape: 'Xs'}
     },
     {
-      stimulus: repo_site + "black_circleofcircles.png",
+        stimulus: repo_site + "XofX_topR.png",
+        data: { 
+          stim_type: 'congruent',
+          global_shape: 'black_X',
+          local_shape: 'Xs'}
+    },
+    {
+        stimulus: repo_site + "XofX_bottomL.png",
+        data: { 
+          stim_type: 'congruent',
+          global_shape: 'black_X',
+          local_shape: 'Xs'}
+    },
+    {
+        stimulus: repo_site + "XofX_bottomR.png",
+        data: { 
+          stim_type: 'congruent',
+          global_shape: 'black_X',
+          local_shape: 'Xs'}
+    },
+    {
+      stimulus: repo_site + "circleofcircles_topL.png",
       data: {  
         stim_type: 'congruent',
         global_shape: 'black_circle',
         local_shape: 'circles'}
     },
     {
-      stimulus: repo_site + "black_circleofXs.png",
-      data: { 
-        stim_type: 'incongruent',
-        global_shape: 'black_circle',
-        local_shape: 'Xs'}
+        stimulus: repo_site + "circleofcircles_topR.png",
+        data: {  
+          stim_type: 'congruent',
+          global_shape: 'black_circle',
+          local_shape: 'circles'}
     },
     {
-      stimulus: repo_site + "black_Xofcircles.png",
+        stimulus: repo_site + "circleofcircles_bottomL.png",
+        data: {  
+          stim_type: 'congruent',
+          global_shape: 'black_circle',
+          local_shape: 'circles'}
+    },
+    {
+        stimulus: repo_site + "circleofcircles_bottomR.png",
+        data: {  
+          stim_type: 'congruent',
+          global_shape: 'black_circle',
+          local_shape: 'circles'}
+    },
+    {
+      stimulus: repo_site + "circleofX_topL.png",
+      data: { 
+            stim_type: 'incongruent',
+            global_shape: 'black_circle',
+            local_shape: 'Xs'}
+    },
+    {
+        stimulus: repo_site + "circleofX_topR.png",
+        data: { 
+          stim_type: 'incongruent',
+          global_shape: 'black_circle',
+          local_shape: 'Xs'}
+    },
+    {
+        stimulus: repo_site + "circleofX_bottomL.png",
+        data: { 
+          stim_type: 'incongruent',
+          global_shape: 'black_circle',
+          local_shape: 'Xs'}
+    },
+    {
+        stimulus: repo_site + "circleofX_bottomR.png",
+        data: { 
+          stim_type: 'incongruent',
+          global_shape: 'black_circle',
+          local_shape: 'Xs'}
+    },
+    {
+      stimulus: repo_site + "Xofcircles_topL.png",
       data: { 
         stim_type: 'incongruent',
         global_shape: 'black_X',
         local_shape: 'circles'}
+    },
+    {
+        stimulus: repo_site + "Xofcircles_topR.png",
+        data: { 
+          stim_type: 'incongruent',
+          global_shape: 'black_X',
+          local_shape: 'circles'}
+    },
+    {
+        stimulus: repo_site + "Xofcircles_bottomL.png",
+        data: { 
+          stim_type: 'incongruent',
+          global_shape: 'black_X',
+          local_shape: 'circles'}
+    },
+    {
+        stimulus: repo_site + "Xofcircles_bottomR.png",
+        data: { 
+          stim_type: 'incongruent',
+          global_shape: 'black_X',
+          local_shape: 'circles'}
     }
 ];
 
@@ -86,7 +170,7 @@ var local_array = {
     choices: ['x', 'o'],
     stimulus_duration: 50,
     trial_duration: 4000,
-    stimulus_height: 210,
+    stimulus_height: 700,
     maintain_aspect_ratio: true,
     stimulus: jsPsych.timelineVariable('stimulus'),
     data: jsPsych.timelineVariable('data'),
@@ -121,12 +205,8 @@ var feedback = {
 ///////////////// Local block /////////////////////
 var local_set = {
     timeline: [fixation, local_array, feedback],
-    timeline_variables: test_stimuli,
-    sample: {
-        type: 'fixed-repetitions',
-        size: 4
-    }
-}
+    timeline_variables: test_stimuli
+};
 
 var local_block = {
     timeline: [preload, local_instructions_block, local_set],
@@ -135,7 +215,7 @@ var local_block = {
         test_type: 'local'
     },
     repetitions: 10
-}
+};
 
 /* set conditional timelines */
 timeline.push(welcome_block); 
