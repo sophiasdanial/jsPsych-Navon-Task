@@ -240,32 +240,33 @@ var local_array = {
 ///////////////// Global block /////////////////////
 var global_set = {
     timeline: [fixation, global_array],
+    timeline_variables: test_stimuli,
+    randomize_order: true,
+    
+    
+}
+
+var global_block = {
+    timeline: [global_instructions_block, global_set],
     stimulus: jsPsych.timelineVariable('stimulus'),
     data: {
         test_type: 'global'
     }
     
 }
-
-var global_block = {
-    timeline: [global_instructions_block, global_set],
-    timeline_variables: test_stimuli,
-    randomize_order: true,
-    
-}
 ///////////////// Local block /////////////////////
 var local_set = {
     timeline: [fixation, local_array],
-    stimulus: jsPsych.timelineVariable('stimulus'),
-    data: {
-        test_type: 'local'
-    }
+    timeline_variables: test_stimuli,
+    randomize_order: true,
 }
 
 var local_block = {
     timeline: [local_instructions_block, local_set],
-    timeline_variables: test_stimuli,
-    randomize_order: true,
+    stimulus: jsPsych.timelineVariable('stimulus'),
+    data: {
+        test_type: 'local'
+    }
 }
 
 timeline.push(preload);
