@@ -251,7 +251,6 @@ var local_block = {
 /* set conditional timelines */
 var global_start_node = {
     timeline: [global_block, local_block],
-    timeline_variables: test_stimuli,
 }
 
 timeline.push(welcome_block);
