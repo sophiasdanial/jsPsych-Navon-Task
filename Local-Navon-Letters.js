@@ -209,7 +209,8 @@ var global_array = {
             correct = true;
         }
         data.correct = correct;
-    }
+    },
+    test_type: 'global'
     
 }
 
@@ -231,7 +232,8 @@ var local_array = {
             correct = true;
         }
         data.correct = correct;
-    }
+    },
+    test_type: 'local'
 }
 
 /* test */
@@ -242,10 +244,6 @@ var global_set = {
     timeline: [fixation, global_array],
     timeline_variables: test_stimuli,
     randomize_order: true,
-    data: {
-        test_part: 'test',
-        test_type: 'global'
-    }
 }
 
 var global_block = {
@@ -257,15 +255,10 @@ var local_set = {
     timeline: [fixation, local_array],
     timeline_variables: test_stimuli,
     randomize_order: true,
-    data: {
-        test_part: 'test',
-        test_type: 'local'
-    }
 }
 
 var local_block = {
     timeline: [local_instructions_block, local_set],
-    
 }
 
 /* set conditional timelines */
