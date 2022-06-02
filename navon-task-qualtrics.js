@@ -46,29 +46,33 @@ Qualtrics.SurveyEngine.addOnload(function () {
                 var correct_trials = total_trials.filter({
                     correct: true
                 });
+                var wrong_trials = jsPsych.data.get().filter({
+                    correct: false
+                }).count();
                 var rt = correct_trials.select('rt').mean();
-                var global_congruent_rt = jsPsych.data.get().filter({
+                var global_congruent_rt = Math.round(jsPsych.data.get().filter({
                     correct: true,
                     stim_type: 'congruent',
                     test_type: 'global'
-                }).select('rt').mean();
-                var local_congruent_rt = jsPsych.data.get().filter({
+                }).select('rt').mean());
+                var local_congruent_rt = Math.round(jsPsych.data.get().filter({
                     correct: true,
                     stim_type: 'congruent',
                     test_type: 'local'
-                }).select('rt').mean();
-                var global_incongruent_rt = jsPsych.data.get().filter({
+                }).select('rt').mean());
+                var global_incongruent_rt = Math.round(jsPsych.data.get().filter({
                     correct: true,
                     stim_type: 'incongruent',
                     test_type: 'global'
-                }).select('rt').mean();
-                var local_incongruent_rt = jsPsych.data.get().filter({
+                }).select('rt').mean());
+                var local_incongruent_rt = Math.round(jsPsych.data.get().filter({
                     correct: true,
                     stim_type: 'incongruent',
                     test_type: 'local'
-                }).select('rt').mean();
+                }).select('rt').mean());
 
                 Qualtrics.SurveyEngine.setEmbeddedData("rt", rt);
+                Qualtrics.SurveyEngine.setEmbeddedData("error", wrong_trials);
                 Qualtrics.SurveyEngine.setEmbeddedData("global_congruent_rt", global_congruent_rt);
                 Qualtrics.SurveyEngine.setEmbeddedData("local_congruent_rt", local_congruent_rt);
                 Qualtrics.SurveyEngine.setEmbeddedData("global_incongruent_rt", global_incongruent_rt);

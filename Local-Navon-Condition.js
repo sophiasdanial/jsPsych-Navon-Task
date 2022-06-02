@@ -151,13 +151,13 @@ var correct_trials = total_trials.filter({
     correct: true
 });
 var rt = correct_trials.select('rt').mean();
-var local_congruent_rt = jsPsych.data.get().filter({
+var local_congruent_rt = Math.round(jsPsych.data.get().filter({
     correct: true,
     stim_type: 'congruent',
     test_type: 'local'
-}).select('rt').mean();
-var local_incongruent_rt = jsPsych.data.get().filter({
+}).select('rt').mean());
+var local_incongruent_rt = Math.round(jsPsych.data.get().filter({
     correct: true,
     stim_type: 'incongruent',
     test_type: 'local'
-}).select('rt').mean();
+}).select('rt').mean());
