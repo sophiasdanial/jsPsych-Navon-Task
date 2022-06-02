@@ -152,14 +152,34 @@ var total_trials = jsPsych.data.get().filter({
 var correct_trials = total_trials.filter({
     correct: true
 });
+var wrong_trials = jsPsych.data.get().filter({
+    correct: false
+}).count();
 var rt = correct_trials.select('rt').mean();
-var global_congruent_rt = jsPsych.data.get().filter({
+var global_congruent_rt = Math.round(jsPsych.data.get().filter({
     correct: true,
     stim_type: 'congruent',
     test_type: 'global'
-}).select('rt').mean();
-var global_incongruent_rt = jsPsych.data.get().filter({
+}).select('rt').mean());
+var global_incongruent_rt = Math.round(jsPsych.data.get().filter({
     correct: true,
     stim_type: 'incongruent',
     test_type: 'global'
-}).select('rt').mean();
+}).select('rt').mean());
+///////trial-by-trial capture for Qualtrics////////
+var XofX = jsPsych.data.get().filter({
+    global_shape: 'black_X',
+    local_shape: 'Xs'
+}).select('rt').values;
+var XofO = jsPsych.data.get().filter({
+    global_shape: 'black_X',
+    local_shape: 'circles'
+}).select('rt').values;
+var OofO = jsPsych.data.get().filter({
+    global_shape: 'black_circle',
+    local_shape: 'circles'
+}).select('rt').values;
+var OofX = jsPsych.data.get().filter({
+    global_shape: 'black_circles',
+    local_shape: 'Xs'
+}).select('rt').values;
