@@ -7,8 +7,10 @@ var preload = {
     type: 'preload',
     show_progress_bar: true,
     message: 'Loading images... Please wait',
-    auto_preload: true
+    auto_preload: true,
+    images: test_stimuli
 }
+
 
 /* define stimuli */
 

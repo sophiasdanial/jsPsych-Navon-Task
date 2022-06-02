@@ -7,40 +7,125 @@ var preload = {
     type: 'preload',
     show_progress_bar: true,
     message: 'Loading images... Please wait',
-    auto_preload: true
+    auto_preload: true,
+    images: test_stimuli
 }
 
 /* define stimuli */
 
 var test_stimuli = [
     {
-      stimulus: repo_site + "black_h_of_h.png",
+      stimulus: repo_site + "HofH_topL.png",
       data: { 
           stim_type: 'congruent',
-          global_shape: 'black_s',
-          local_shape: 's'}
+          global_shape: 'black_h',
+          local_shape: 'h'}
     },
     {
-      stimulus: repo_site + "black_s_of_s.png",
+        stimulus: repo_site + "HofH_topR.png",
+        data: { 
+            stim_type: 'congruent',
+            global_shape: 'black_h',
+            local_shape: 'h'}
+    },
+    {
+        stimulus: repo_site + "HofH_bottomL.png",
+        data: { 
+            stim_type: 'congruent',
+            global_shape: 'black_h',
+            local_shape: 'h'}
+    },
+    {
+        stimulus: repo_site + "HofH_bottomR.png",
+        data: { 
+            stim_type: 'congruent',
+            global_shape: 'black_h',
+            local_shape: 'h'}
+    },
+    {
+      stimulus: repo_site + "SofS_topL.png",
       data: {  
           stim_type: 'congruent',
           global_shape: 'black_s',
           local_shape: 's'}
     },
     {
-      stimulus: repo_site + "black_h_of_s.png",
+        stimulus: repo_site + "SofS_topR.png",
+        data: {  
+            stim_type: 'congruent',
+            global_shape: 'black_s',
+            local_shape: 's'}
+    },
+    {
+        stimulus: repo_site + "SofS_bottomL.png",
+        data: {  
+            stim_type: 'congruent',
+            global_shape: 'black_s',
+            local_shape: 's'}
+    },
+    {
+        stimulus: repo_site + "SofS_bottomR.png",
+        data: {  
+            stim_type: 'congruent',
+            global_shape: 'black_s',
+            local_shape: 's'}
+    },
+    {
+      stimulus: repo_site + "HofS_topL.png",
       data: { 
           stim_type: 'incongruent',
           global_shape: 'black_h',
           local_shape: 's'}
     },
     {
-      stimulus: repo_site + "black_s_of_h.png",
+        stimulus: repo_site + "HofS_topR.png",
+        data: { 
+            stim_type: 'incongruent',
+            global_shape: 'black_h',
+            local_shape: 's'}
+    },
+    {
+        stimulus: repo_site + "HofS_bottomL.png",
+        data: { 
+            stim_type: 'incongruent',
+            global_shape: 'black_h',
+            local_shape: 's'}
+    },
+    {
+        stimulus: repo_site + "HofS_bottomR.png",
+        data: { 
+            stim_type: 'incongruent',
+            global_shape: 'black_h',
+            local_shape: 's'}
+    },
+    {
+      stimulus: repo_site + "SofH_topL.png",
       data: { 
           stim_type: 'incongruent',
           global_shape: 'black_s',
           local_shape: 'h'}
-    }
+    },
+    {
+        stimulus: repo_site + "SofH_topR.png",
+        data: { 
+            stim_type: 'incongruent',
+            global_shape: 'black_s',
+            local_shape: 'h'}
+    },
+    {
+        stimulus: repo_site + "SofH_bottomL.png",
+        data: { 
+            stim_type: 'incongruent',
+            global_shape: 'black_s',
+            local_shape: 'h'}
+    },
+    {
+        stimulus: repo_site + "SofH_bottomR.png",
+        data: { 
+            stim_type: 'incongruent',
+            global_shape: 'black_s',
+            local_shape: 'h'}
+      }
 ];
 
 /*text blocks*/
@@ -94,7 +179,7 @@ var global_array = {
     stimulus_duration: 50,
     response_ends_trial: true,
     post_trial_gap: 300,
-    stimulus_height: 210,
+    stimulus_height: 750,
     maintain_aspect_ratio: true,
     stimulus: jsPsych.timelineVariable('stimulus'),
     data: jsPsych.timelineVariable('data'),
@@ -116,7 +201,7 @@ var local_array = {
     stimulus_duration: 50,
     response_ends_trial: true,
     post_trial_gap: 300,
-    stimulus_height: 210,
+    stimulus_height: 750,
     maintain_aspect_ratio: true,
     stimulus: jsPsych.timelineVariable('stimulus'),
     data: jsPsych.timelineVariable('data'),
@@ -138,14 +223,11 @@ var local_array = {
 var global_set = {
     timeline: [fixation, global_array],
     timeline_variables: test_stimuli,
-    sample: {
-        type: 'fixed-repetitions',
-        size: 4
-    }
+    randomize_order: true
 }
 
 var global_block = {
-    timeline: [preload, global_instructions_block, global_set],
+    timeline: [global_instructions_block, global_set],
     data: {
         test_part: 'test',
         test_type: 'global'
@@ -155,14 +237,11 @@ var global_block = {
 var local_set = {
     timeline: [fixation, local_array],
     timeline_variables: test_stimuli,
-    sample: {
-        type: 'fixed-repetitions',
-        size: 4
-    }
+    randomize_order: true
 }
 
 var local_block = {
-    timeline: [preload, local_instructions_block, local_set],
+    timeline: [local_instructions_block, local_set],
     data: {
         test_part: 'test',
         test_type: 'local'
@@ -190,6 +269,9 @@ var total_trials = jsPsych.data.get().filter({
 var correct_trials = total_trials.filter({
     correct: true
 });
+var wrong_trials = jsPsych.data.get().filter({
+    correct: false
+}).count();
 var rt = correct_trials.select('rt').mean();
 var global_congruent_rt = jsPsych.data.get().filter({
     correct: true,
@@ -211,3 +293,24 @@ var local_incongruent_rt = jsPsych.data.get().filter({
     stim_type: 'incongruent',
     test_type: 'local'
 }).select('rt').mean();
+///////trial-by-trial capture for Qualtrics////////
+var HofH = jsPsych.data.get().filter({
+    correct: true,
+    global_shape: 'black_h',
+    local_shape: 'h'
+}).select('rt').values;
+var HofS = jsPsych.data.get().filter({
+    correct: true,
+    global_shape: 'black_h',
+    local_shape: 's'
+}).select('rt').values;
+var SofS = jsPsych.data.get().filter({
+    correct: true,
+    global_shape: 'black_s',
+    local_shape: 's'
+}).select('rt').values;
+var SofH = jsPsych.data.get().filter({
+    correct: true,
+    global_shape: 'black_s',
+    local_shape: 's'
+}).select('rt').values;
