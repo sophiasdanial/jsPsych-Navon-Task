@@ -83,7 +83,7 @@ Qualtrics.SurveyEngine.addOnload(function () {
                     local_shape: 'circles'
                 }).select('rt').values;
                 var OofX = jsPsych.data.get().filter({
-                    global_shape: 'black_circles',
+                    global_shape: 'black_circle',
                     local_shape: 'Xs'
                 }).select('rt').values;
 

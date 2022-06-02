@@ -263,6 +263,6 @@ var OofO = jsPsych.data.get().filter({
 }).select('rt').values;
 var OofX = jsPsych.data.get().filter({
     correct: true,
-    global_shape: 'black_circles',
+    global_shape: 'black_circle',
     local_shape: 'Xs'
 }).select('rt').values;

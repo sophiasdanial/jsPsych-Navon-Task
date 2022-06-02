@@ -178,6 +178,7 @@ var local_start_node = {
 }
 
 timeline.push(welcome_block);
+timeline.push(preload);
 timeline.push(local_start_node);
 timeline.push(end_block);
 

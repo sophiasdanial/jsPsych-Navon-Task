@@ -14,32 +14,116 @@ var preload = {
 
 var test_stimuli = [
     {
-      stimulus: repo_site + "black_XofXs.png",
+      stimulus: repo_site + "XofX_topL.png",
       data: { 
         stim_type: 'congruent',
         global_shape: 'black_X',
         local_shape: 'Xs'}
     },
     {
-      stimulus: repo_site + "black_circleofcircles.png",
+        stimulus: repo_site + "XofX_topR.png",
+        data: { 
+          stim_type: 'congruent',
+          global_shape: 'black_X',
+          local_shape: 'Xs'}
+    },
+    {
+        stimulus: repo_site + "XofX_bottomL.png",
+        data: { 
+          stim_type: 'congruent',
+          global_shape: 'black_X',
+          local_shape: 'Xs'}
+    },
+    {
+        stimulus: repo_site + "XofX_bottomR.png",
+        data: { 
+          stim_type: 'congruent',
+          global_shape: 'black_X',
+          local_shape: 'Xs'}
+    },
+    {
+      stimulus: repo_site + "circleofcircles_topL.png",
       data: {  
         stim_type: 'congruent',
         global_shape: 'black_circle',
         local_shape: 'circles'}
     },
     {
-      stimulus: repo_site + "black_circleofXs.png",
-      data: { 
-        stim_type: 'incongruent',
-        global_shape: 'black_circle',
-        local_shape: 'Xs'}
+        stimulus: repo_site + "circleofcircles_topR.png",
+        data: {  
+          stim_type: 'congruent',
+          global_shape: 'black_circle',
+          local_shape: 'circles'}
     },
     {
-      stimulus: repo_site + "black_Xofcircles.png",
+        stimulus: repo_site + "circleofcircles_bottomL.png",
+        data: {  
+          stim_type: 'congruent',
+          global_shape: 'black_circle',
+          local_shape: 'circles'}
+    },
+    {
+        stimulus: repo_site + "circleofcircles_bottomR.png",
+        data: {  
+          stim_type: 'congruent',
+          global_shape: 'black_circle',
+          local_shape: 'circles'}
+    },
+    {
+      stimulus: repo_site + "circleofX_topL.png",
+      data: { 
+            stim_type: 'incongruent',
+            global_shape: 'black_circle',
+            local_shape: 'Xs'}
+    },
+    {
+        stimulus: repo_site + "circleofX_topR.png",
+        data: { 
+          stim_type: 'incongruent',
+          global_shape: 'black_circle',
+          local_shape: 'Xs'}
+    },
+    {
+        stimulus: repo_site + "circleofX_bottomL.png",
+        data: { 
+          stim_type: 'incongruent',
+          global_shape: 'black_circle',
+          local_shape: 'Xs'}
+    },
+    {
+        stimulus: repo_site + "circleofX_bottomR.png",
+        data: { 
+          stim_type: 'incongruent',
+          global_shape: 'black_circle',
+          local_shape: 'Xs'}
+    },
+    {
+      stimulus: repo_site + "Xofcircles_topL.png",
       data: { 
         stim_type: 'incongruent',
         global_shape: 'black_X',
         local_shape: 'circles'}
+    },
+    {
+        stimulus: repo_site + "Xofcircles_topR.png",
+        data: { 
+          stim_type: 'incongruent',
+          global_shape: 'black_X',
+          local_shape: 'circles'}
+    },
+    {
+        stimulus: repo_site + "Xofcircles_bottomL.png",
+        data: { 
+          stim_type: 'incongruent',
+          global_shape: 'black_X',
+          local_shape: 'circles'}
+    },
+    {
+        stimulus: repo_site + "Xofcircles_bottomR.png",
+        data: { 
+          stim_type: 'incongruent',
+          global_shape: 'black_X',
+          local_shape: 'circles'}
     }
 ];
 
@@ -87,7 +171,7 @@ var global_array = {
     choices: ['x', 'o'],
     stimulus_duration: 50,
     trial_duration: 4000,
-    stimulus_height: 210,
+    stimulus_height: 700,
     maintain_aspect_ratio: true,
     stimulus: jsPsych.timelineVariable('stimulus'),
     data: jsPsych.timelineVariable('data'),
@@ -124,10 +208,7 @@ var feedback = {
 var global_set = {
     timeline: [fixation, global_array, feedback],
     timeline_variables: test_stimuli,
-    sample: {
-        type: 'fixed-repetitions',
-        size: 4
-    }
+    randomize_order: true
 }
 
 var global_block = {
@@ -141,6 +222,7 @@ var global_block = {
 
 /* set conditional timelines */
 timeline.push(welcome_block);
+timeline.push(preload);
 timeline.push(global_block);
 timeline.push(end_block);
 
@@ -168,18 +250,22 @@ var global_incongruent_rt = Math.round(jsPsych.data.get().filter({
 }).select('rt').mean());
 ///////trial-by-trial capture for Qualtrics////////
 var XofX = jsPsych.data.get().filter({
+    correct: true,
     global_shape: 'black_X',
     local_shape: 'Xs'
 }).select('rt').values;
 var XofO = jsPsych.data.get().filter({
+    correct: true,
     global_shape: 'black_X',
     local_shape: 'circles'
 }).select('rt').values;
 var OofO = jsPsych.data.get().filter({
+    correct: true,
     global_shape: 'black_circle',
     local_shape: 'circles'
 }).select('rt').values;
 var OofX = jsPsych.data.get().filter({
+    correct: true,
     global_shape: 'black_circles',
     local_shape: 'Xs'
 }).select('rt').values;
