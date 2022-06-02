@@ -231,36 +231,34 @@ var local_set = {
 };
 
 var local_block = {
-    timeline: [preload, local_instructions_block, local_set],
+    timeline: [local_instructions_block, local_set],
     repetitions: 10
 };
 
 /* set conditional timelines */
+timeline.push(preload);
 timeline.push(welcome_block); 
 timeline.push(local_block);
 timeline.push(end_block);
 
 /* define results */
 
-var total_trials = jsPsych.data.get().filter({
-    test_part: 'test'
-});
-var correct_trials = total_trials.filter({
+var correct_trials = jsPsych.data.get().filter({
     correct: true
-});
+}).count();
 var wrong_trials = jsPsych.data.get().filter({
     correct: false
 }).count();
-var rt = correct_trials.select('rt').mean();
-var local_congruent_rt = Math.round(jsPsych.data.get().filter({
+var rt = jsPsych.data.get().filter({
+    correct: true
+}).select('rt').mean();
+var global_congruent_rt = Math.round(jsPsych.data.get().filter({
     correct: true,
     stim_type: 'congruent',
-    test_type: 'local'
 }).select('rt').mean());
-var local_incongruent_rt = Math.round(jsPsych.data.get().filter({
+var global_incongruent_rt = Math.round(jsPsych.data.get().filter({
     correct: true,
     stim_type: 'incongruent',
-    test_type: 'local'
 }).select('rt').mean());
 ///////trial-by-trial capture for Qualtrics////////
 var XofX = jsPsych.data.get().filter({
@@ -280,6 +278,6 @@ var OofO = jsPsych.data.get().filter({
 }).select('rt').values;
 var OofX = jsPsych.data.get().filter({
     correct: true,
-    global_shape: 'black_circle',
+    global_shape: 'black_circles',
     local_shape: 'Xs'
 }).select('rt').values;

@@ -266,7 +266,6 @@ var local_set = {
 
 var local_block = {
     timeline: [local_instructions_block, local_set],
-    
 }
 
 /* set conditional timelines */
@@ -282,16 +281,15 @@ timeline.push(end_block);
 
 /* define results */
 
-var total_trials = jsPsych.data.get().filter({
-    test_part: 'test'
-});
-var correct_trials = total_trials.filter({
+var correct_trials = jsPsych.data.get().filter({
     correct: true
-});
+}).count();
 var wrong_trials = jsPsych.data.get().filter({
     correct: false
 }).count();
-var rt = correct_trials.select('rt').mean();
+var rt = jsPsych.data.get().filter({
+    correct: true
+}).select('rt').mean();
 var global_congruent_rt = jsPsych.data.get().filter({
     correct: true,
     stim_type: 'congruent',
