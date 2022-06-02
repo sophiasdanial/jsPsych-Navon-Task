@@ -150,7 +150,7 @@ var test_stimuli = [
 var welcome_block = {
     type: 'html-keyboard-response',
     stimulus: 
-    '<div style="text-align:center"><p>Welcome to Part Three.</p><br>\
+    '<div style="text-align:center;font-size: 23px"><p>Welcome to Part Three.</p><br>\
     <p>This is a <strong>timed</strong> activity. Please try to be as <strong>fast</strong> and <strong>accurate</strong> as possible.</p><br><br>\
     <p>Similar to Part One, each trial will present a large letter made out of smaller letters.</p>\
     <p>For example, you may see a large <strong>H</strong> made out of smaller <strong>S</strong>`s. Or you may see a large <strong>S</strong> made out of smaller <strong>H</strong>`s.</p><br><br>\
@@ -164,18 +164,18 @@ var welcome_block = {
 var end_block = {
     type: 'html-keyboard-response',
     stimulus:
-    '<div style="text-align:center"><p>Congratulations! You have completed Part Three.<br>Press any button to move on to your debriefing</p>'
+    '<div style="text-align:center;font-size: 23px""><p>Congratulations! You have completed Part Three.<br>Press any button to move on to your debriefing</p>'
 }
 
 var global_instructions_block = {
     type: 'html-keyboard-response',
-    stimulus: '<p>For the following trials, please select <i>only</i> the <strong>large</strong> letter</p><br><br><p>Press any key to continue</p>',
+    stimulus: '<p style="font-size: 23px">For the following trials, please select <i>only</i> the <strong>large</strong> letter</p><br><br><p>Press any key to continue</p>',
     post_trial_gap: 2000
 }
 
 var local_instructions_block = {
     type: 'html-keyboard-response',
-    stimulus: '<p>For the following trials, please select <i>only</i> the <strong>small</strong> letter</p><br><br><p>Press any key to continue</p>',
+    stimulus: '<p style="font-size: 23px">For the following trials, please select <i>only</i> the <strong>small</strong> letter</p><br><br><p>Press any key to continue</p>',
     post_trial_gap: 2000
 }
 /* define trials */
@@ -209,8 +209,8 @@ var global_array = {
             correct = true;
         }
         data.correct = correct;
+        jsPsych.data.get().addToLast({test_type: 'global'})
     },
-    test_type: 'global'
     
 }
 
@@ -232,8 +232,8 @@ var local_array = {
             correct = true;
         }
         data.correct = correct;
-    },
-    test_type: 'local'
+        jsPsych.data.get().addToLast({test_type: 'local'})
+    }
 }
 
 /* test */
