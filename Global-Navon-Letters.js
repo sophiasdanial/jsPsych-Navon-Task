@@ -254,7 +254,7 @@ var global_start_node = {
     timeline: [global_block, local_block],
     timeline_variables: test_stimuli,
     randomize_order: true,
-    repetitions: 5
+    repetitions: 2
 }
 
 timeline.push(welcome_block);
