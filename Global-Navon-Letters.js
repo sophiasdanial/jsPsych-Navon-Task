@@ -253,7 +253,6 @@ var local_block = {
 var global_start_node = {
     timeline: [global_block, local_block],
     timeline_variables: test_stimuli,
-    randomize_order: true,
 }
 
 timeline.push(welcome_block);
