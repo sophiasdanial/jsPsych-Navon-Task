@@ -214,7 +214,7 @@ var global_set = {
 }
 
 var global_block = {
-    timeline: [preload, global_instructions_block, global_set],
+    timeline: [global_instructions_block, global_set],
     data: {
         test_part: 'test',
         test_type: 'global'
