@@ -281,6 +281,26 @@ var correct_trials = jsPsych.data.get().filter({
 var wrong_trials = jsPsych.data.get().filter({
     correct: false
 }).count();
+var error_globalcongruent = jsPsych.data.get().filter({
+    correct: false,
+    stim_type: 'congruent',
+    test_type: 'global'
+}).count();
+var error_globalincongruent = jsPsych.data.get().filter({
+    correct: false,
+    stim_type: 'incongruent',
+    test_type: 'global'
+}).count();
+var error_localcongruent = jsPsych.data.get().filter({
+    correct: false,
+    stim_type: 'congruent',
+    test_type: 'local'
+}).count();
+var error_localincongruent = jsPsych.data.get().filter({
+    correct: false,
+    stim_type: 'incongruent',
+    test_type: 'local'
+}).count();
 var rt = jsPsych.data.get().filter({
     correct: true
 }).select('rt').mean();
