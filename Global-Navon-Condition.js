@@ -252,6 +252,14 @@ var wrong_trials = jsPsych.data.get().filter({
 var rt = jsPsych.data.get().filter({
     correct: true
 }).select('rt').mean();
+var error_congruent = jsPsych.data.get().filter({
+    correct: false,
+    stim_type: 'congruent'
+}).count();
+var error_incongruent = jsPsych.data.get().filter({
+    correct: false,
+    stim_type: 'incongruent'
+}).count();
 var global_congruent_rt = Math.round(jsPsych.data.get().filter({
     correct: true,
     stim_type: 'congruent',

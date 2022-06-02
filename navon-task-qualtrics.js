@@ -40,63 +40,67 @@ Qualtrics.SurveyEngine.addOnload(function () {
             display_element: 'display_stage',
             on_finish: function (data) {
                 
-                var total_trials = jsPsych.data.get().filter({
-                    test_part: 'test'
-                });
-                var correct_trials = total_trials.filter({
+                var correct_trials = jsPsych.data.get().filter({
                     correct: true
-                });
+                }).count();
                 var wrong_trials = jsPsych.data.get().filter({
                     correct: false
                 }).count();
-                var rt = correct_trials.select('rt').mean();
-                var global_congruent_rt = Math.round(jsPsych.data.get().filter({
+                var rt = jsPsych.data.get().filter({
+                    correct: true
+                }).select('rt').mean();
+                var global_congruent_rt = jsPsych.data.get().filter({
                     correct: true,
                     stim_type: 'congruent',
                     test_type: 'global'
-                }).select('rt').mean());
-                var local_congruent_rt = Math.round(jsPsych.data.get().filter({
+                }).select('rt').mean();
+                var local_congruent_rt = jsPsych.data.get().filter({
                     correct: true,
                     stim_type: 'congruent',
                     test_type: 'local'
-                }).select('rt').mean());
-                var global_incongruent_rt = Math.round(jsPsych.data.get().filter({
+                }).select('rt').mean();
+                var global_incongruent_rt = jsPsych.data.get().filter({
                     correct: true,
                     stim_type: 'incongruent',
                     test_type: 'global'
-                }).select('rt').mean());
-                var local_incongruent_rt = Math.round(jsPsych.data.get().filter({
+                }).select('rt').mean();
+                var local_incongruent_rt = jsPsych.data.get().filter({
                     correct: true,
                     stim_type: 'incongruent',
                     test_type: 'local'
-                }).select('rt').mean());
-                var XofX = jsPsych.data.get().filter({
-                    global_shape: 'black_X',
-                    local_shape: 'Xs'
+                }).select('rt').mean();
+                var HofH = jsPsych.data.get().filter({
+                    correct: true,
+                    global_shape: 'black_h',
+                    local_shape: 'h'
                 }).select('rt').values;
-                var XofO = jsPsych.data.get().filter({
-                    global_shape: 'black_X',
-                    local_shape: 'circles'
+                var HofS = jsPsych.data.get().filter({
+                    correct: true,
+                    global_shape: 'black_h',
+                    local_shape: 's'
                 }).select('rt').values;
-                var OofO = jsPsych.data.get().filter({
-                    global_shape: 'black_circle',
-                    local_shape: 'circles'
+                var SofS = jsPsych.data.get().filter({
+                    correct: true,
+                    global_shape: 'black_s',
+                    local_shape: 's'
                 }).select('rt').values;
-                var OofX = jsPsych.data.get().filter({
-                    global_shape: 'black_circle',
-                    local_shape: 'Xs'
+                var SofH = jsPsych.data.get().filter({
+                    correct: true,
+                    global_shape: 'black_s',
+                    local_shape: 's'
                 }).select('rt').values;
 
                 Qualtrics.SurveyEngine.setEmbeddedData("rt", rt);
                 Qualtrics.SurveyEngine.setEmbeddedData("error", wrong_trials);
+                Qualtrics.SurveyEngine.setEmbeddedData("correct", correct_trials);
                 Qualtrics.SurveyEngine.setEmbeddedData("global_congruent_rt", global_congruent_rt);
                 Qualtrics.SurveyEngine.setEmbeddedData("local_congruent_rt", local_congruent_rt);
                 Qualtrics.SurveyEngine.setEmbeddedData("global_incongruent_rt", global_incongruent_rt);
                 Qualtrics.SurveyEngine.setEmbeddedData("local_incongruent_rt", local_incongruent_rt);
-                Qualtrics.SurveyEngine.setEmbeddedData("XofX", XofX);
-                Qualtrics.SurveyEngine.setEmbeddedData("XofO", XofO);
-                Qualtrics.SurveyEngine.setEmbeddedData("OofO", OofO);
-                Qualtrics.SurveyEngine.setEmbeddedData("OofX", OofX);
+                Qualtrics.SurveyEngine.setEmbeddedData("HofH", HofH);
+                Qualtrics.SurveyEngine.setEmbeddedData("HofS", HofS);
+                Qualtrics.SurveyEngine.setEmbeddedData("SofS", SofS);
+                Qualtrics.SurveyEngine.setEmbeddedData("SofH", SofH);
               
                 jQuery('#display_stage').remove();
                 jQuery('#display_stage_background').remove();
