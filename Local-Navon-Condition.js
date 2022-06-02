@@ -205,7 +205,8 @@ var feedback = {
 ///////////////// Local block /////////////////////
 var local_set = {
     timeline: [fixation, local_array, feedback],
-    timeline_variables: test_stimuli
+    timeline_variables: test_stimuli,
+    randomize_order: true,
 };
 
 var local_block = {
