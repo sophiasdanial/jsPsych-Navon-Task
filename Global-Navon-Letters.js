@@ -210,7 +210,7 @@ var global_array = {
             correct = true;
         }
         data.correct = correct;
-        jsPsych.data.write({test_type: 'global'})
+        jsPsych.data.get().addToLast({test_type: 'global'})
     },
     
 }
@@ -233,7 +233,7 @@ var local_array = {
             correct = true;
         }
         data.correct = correct;
-        jsPsych.data.write({test_type: 'local'});
+        jsPsych.data.get().addToLast({test_type: 'local'});
     },
 
 }
