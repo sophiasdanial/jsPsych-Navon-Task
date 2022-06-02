@@ -206,7 +206,7 @@ var feedback = {
 var local_set = {
     timeline: [fixation, local_array, feedback],
     timeline_variables: test_stimuli,
-    randomize_order: true,
+    randomize_order: true
 };
 
 var local_block = {
@@ -247,18 +247,22 @@ var local_incongruent_rt = Math.round(jsPsych.data.get().filter({
 }).select('rt').mean());
 ///////trial-by-trial capture for Qualtrics////////
 var XofX = jsPsych.data.get().filter({
+    correct: true,
     global_shape: 'black_X',
     local_shape: 'Xs'
 }).select('rt').values;
 var XofO = jsPsych.data.get().filter({
+    correct: true,
     global_shape: 'black_X',
     local_shape: 'circles'
 }).select('rt').values;
 var OofO = jsPsych.data.get().filter({
+    correct: true,
     global_shape: 'black_circle',
     local_shape: 'circles'
 }).select('rt').values;
 var OofX = jsPsych.data.get().filter({
+    correct: true,
     global_shape: 'black_circles',
     local_shape: 'Xs'
 }).select('rt').values;
