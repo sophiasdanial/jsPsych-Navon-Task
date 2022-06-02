@@ -8,7 +8,26 @@ var preload = {
     show_progress_bar: true,
     message: 'Loading images... Please wait',
     auto_preload: true,
-    images: test_stimuli
+    images: [
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/fixation_cross.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/XofX_topL.png', 
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/XofX_topR.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/XofX_bottomL.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/XofX_bottomR.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/circleofcircles_topL.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/circleofcircles_topR.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/circleofcircles_bottomL.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/circleofcircles_bottomR.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/circleofX_topL.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/circleofX_topR.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/circleofX_bottomL.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/circleofX_bottomR.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/Xofcircles_topL.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/Xofcircles_topR.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/Xofcircles_bottomL.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/Xofcircles_bottomR.png',
+    ],
+    on_success: console.log('success')
 }
 
 
@@ -213,10 +232,6 @@ var local_set = {
 
 var local_block = {
     timeline: [preload, local_instructions_block, local_set],
-    data: {
-        test_part: 'test',
-        test_type: 'local'
-    },
     repetitions: 10
 };
 

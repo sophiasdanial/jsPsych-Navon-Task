@@ -7,8 +7,26 @@ var preload = {
     type: 'preload',
     show_progress_bar: true,
     message: 'Loading images... Please wait',
-    auto_preload: true,
-    images: test_stimuli
+    images: [
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/fixation_cross.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/HofH_topL.png', 
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/HofH_topR.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/HofH_bottomL.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/HofH_bottomR.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/SofS_topL.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/SofS_topR.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/SofS_bottomL.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/SofS_bottomR.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/SofH_topL.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/SofH_topR.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/SofH_bottomL.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/SofH_bottomR.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/HofS_topL.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/HofS_topR.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/HofS_bottomL.png',
+        'https://sophiasdanial.github.io/jsPsych-Navon-Task/images/HofS_bottomR.png',
+    ],
+    on_success: console.log('success')
 }
 
 /* define stimuli */
@@ -251,13 +269,11 @@ var local_block = {
 /* set conditional timelines */
 var local_start_node = {
     timeline: [local_block, global_block],
-    timeline_variables: test_stimuli,
-    randomize_order: true,
     repetitions: 5
 }
 
-timeline.push(welcome_block);
 timeline.push(preload);
+timeline.push(welcome_block);
 timeline.push(local_start_node);
 timeline.push(end_block);
 
