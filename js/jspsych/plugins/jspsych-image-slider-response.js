@@ -196,6 +196,7 @@ jsPsych.plugins['image-slider-response'] = (function() {
       }
       // create html string with slider and labels, and add to slider container
       html ='<input type="range" class="jspsych-slider" value="'+trial.slider_start+'" min="'+trial.min+'" max="'+trial.max+'" step="'+trial.step+'" id="jspsych-image-slider-response-response"></input>';
+      html += '<img style="width:1000px;height:30px" src="https://sophiasdanial.github.io/Fribbles-Generalization/images/1000pxslidermarkings.png">';
       html += '<div>'
       for(var j=0; j < trial.labels.length; j++){
         var label_width_perc = 100/(trial.labels.length-1);
@@ -207,7 +208,6 @@ jsPsych.plugins['image-slider-response'] = (function() {
         html += '<span style="text-align: center; font-size: 80%;">'+trial.labels[j]+'</span>';
         html += '</div>'
       }
-      html += '<img style="width:1000px;height:50px" src="https://sophiasdanial.github.io/Fribbles-Generalization/images/1000pxslidermarkings.png">';
       html += '</div>';
       slider_container.innerHTML = html;
       // add canvas and slider to content wrapper div
