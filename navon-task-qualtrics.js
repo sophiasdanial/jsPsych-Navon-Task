@@ -46,6 +46,26 @@ Qualtrics.SurveyEngine.addOnload(function () {
                 var wrong_trials = jsPsych.data.get().filter({
                     correct: false
                 }).count();
+                var error_globalcongruent = jsPsych.data.get().filter({
+                    correct: false,
+                    stim_type: 'congruent',
+                    test_type: 'global'
+                }).count();
+                var error_globalincongruent = jsPsych.data.get().filter({
+                    correct: false,
+                    stim_type: 'incongruent',
+                    test_type: 'global'
+                }).count();
+                var error_localcongruent = jsPsych.data.get().filter({
+                    correct: false,
+                    stim_type: 'congruent',
+                    test_type: 'local'
+                }).count();
+                var error_localincongruent = jsPsych.data.get().filter({
+                    correct: false,
+                    stim_type: 'incongruent',
+                    test_type: 'local'
+                }).count();
                 var rt = jsPsych.data.get().filter({
                     correct: true
                 }).select('rt').mean();
@@ -92,6 +112,10 @@ Qualtrics.SurveyEngine.addOnload(function () {
 
                 Qualtrics.SurveyEngine.setEmbeddedData("rt", rt);
                 Qualtrics.SurveyEngine.setEmbeddedData("error", wrong_trials);
+                Qualtrics.SurveyEngine.setEmbeddedData("wrong_globalincon", error_globalincongruent);
+                Qualtrics.SurveyEngine.setEmbeddedData("wrong_globalcon", error_globalcongruent);
+                Qualtrics.SurveyEngine.setEmbeddedData("wrong_localincon", error_localincongruent);
+                Qualtrics.SurveyEngine.setEmbeddedData("wrong_localcon", error_localcongruent);
                 Qualtrics.SurveyEngine.setEmbeddedData("correct", correct_trials);
                 Qualtrics.SurveyEngine.setEmbeddedData("global_congruent_rt", global_congruent_rt);
                 Qualtrics.SurveyEngine.setEmbeddedData("local_congruent_rt", local_congruent_rt);
@@ -101,6 +125,58 @@ Qualtrics.SurveyEngine.addOnload(function () {
                 Qualtrics.SurveyEngine.setEmbeddedData("HofS", HofS);
                 Qualtrics.SurveyEngine.setEmbeddedData("SofS", SofS);
                 Qualtrics.SurveyEngine.setEmbeddedData("SofH", SofH);
+
+                ////below for prime condition
+
+                var correct_trials = jsPsych.data.get().filter({
+                    correct: true
+                }).count();
+                var wrong_trials = jsPsych.data.get().filter({
+                    correct: false
+                }).count();
+                var error_congruent = jsPsych.data.get().filter({
+                    correct: false,
+                    stim_type: 'congruent'
+                }).count();
+                var error_incongruent = jsPsych.data.get().filter({
+                    correct: false,
+                    stim_type: 'incongruent'
+                }).count();
+                var rt = jsPsych.data.get().filter({
+                    correct: true
+                }).select('rt').mean();
+                var global_congruent_rt = Math.round(jsPsych.data.get().filter({
+                    correct: true,
+                    stim_type: 'congruent',
+                }).select('rt').mean());
+                var global_incongruent_rt = Math.round(jsPsych.data.get().filter({
+                    correct: true,
+                    stim_type: 'incongruent',
+                }).select('rt').mean());
+                ///////trial-by-trial capture for Qualtrics////////
+                var XofX = jsPsych.data.get().filter({
+                    correct: true,
+                    global_shape: 'black_X',
+                    local_shape: 'Xs'
+                }).select('rt').values;
+                var XofO = jsPsych.data.get().filter({
+                    correct: true,
+                    global_shape: 'black_X',
+                    local_shape: 'circles'
+                }).select('rt').values;
+                var OofO = jsPsych.data.get().filter({
+                    correct: true,
+                    global_shape: 'black_circle',
+                    local_shape: 'circles'
+                }).select('rt').values;
+                var OofX = jsPsych.data.get().filter({
+                    correct: true,
+                    global_shape: 'black_circles',
+                    local_shape: 'Xs'
+                }).select('rt').values;
+
+                Qualtrics.SurveyEngine.setEmbeddedData("wrong_incon", error_incongruent);
+                Qualtrics.SurveyEngine.setEmbeddedData("wrong_con", error_congruent);
               
                 jQuery('#display_stage').remove();
                 jQuery('#display_stage_background').remove();

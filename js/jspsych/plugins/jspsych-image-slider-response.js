@@ -207,6 +207,7 @@ jsPsych.plugins['image-slider-response'] = (function() {
         html += '<span style="text-align: center; font-size: 80%;">'+trial.labels[j]+'</span>';
         html += '</div>'
       }
+      html += '<img style="width:1000px;height:70px" src="https://sophiasdanial.github.io/Fribbles-Generalization/images/1000pxslidermarkings.png">';
       html += '</div>';
       slider_container.innerHTML = html;
       // add canvas and slider to content wrapper div
@@ -270,6 +271,7 @@ jsPsych.plugins['image-slider-response'] = (function() {
         html += '<span style="text-align: center; font-size: 80%;">'+trial.labels[j]+'</span>';
         html += '</div>'
       }
+      
       html += '</div>';
       html += '</div>';
       html += '</div>';
