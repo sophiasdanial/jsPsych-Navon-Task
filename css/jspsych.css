@@ -169,7 +169,7 @@
 /* jsPsych progress bar */
 
 #jspsych-progressbar-container {
-  position: fixed;
+  position: relative;
   bottom: 4vh;
   color: #555;
   border-bottom: 1px solid #dedede;
@@ -183,7 +183,7 @@
 #jspsych-progressbar-container span {
   font-size: 14px;
   padding-right: 14px;
-  position: fixed;
+  position: relative;
   bottom: 4vh;
 }
 #jspsych-progressbar-outer {
