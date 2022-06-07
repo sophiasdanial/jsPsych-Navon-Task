@@ -252,7 +252,7 @@ jsPsych.plugins['image-slider-response'] = (function() {
       }
       html += '"></img>';
       html += '</div>';
-      html += '<div class="jspsych-image-slider-response-container" style="position:relative; margin: 0 auto 10em auto; width:';
+      html += '<div class="jspsych-image-slider-response-container" style="position:relative; margin: 0 auto 1em auto; width:';
       if (trial.slider_width !== null) {
         html += trial.slider_width+'px;';
       } else {
