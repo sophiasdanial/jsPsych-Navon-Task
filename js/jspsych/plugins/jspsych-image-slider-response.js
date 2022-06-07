@@ -235,7 +235,7 @@ jsPsych.plugins['image-slider-response'] = (function() {
 
     } else {
 
-      html = '<div id="jspsych-image-slider-response-wrapper" style="margin: 100px 0px;">';
+      html = '<div id="jspsych-image-slider-response-wrapper" style="margin: 100px auto;">';
       html += '<div id="jspsych-image-slider-response-stimulus">';
       html += '<img src="'+trial.stimulus+'" style="';
       if(trial.stimulus_height !== null){
@@ -252,7 +252,7 @@ jsPsych.plugins['image-slider-response'] = (function() {
       }
       html += '"></img>';
       html += '</div>';
-      html += '<div class="jspsych-image-slider-response-container" style="position:relative; margin: 0 auto 3em auto; width:';
+      html += '<div class="jspsych-image-slider-response-container" style="position:relative; margin: 0 auto 10em auto; width:';
       if (trial.slider_width !== null) {
         html += trial.slider_width+'px;';
       } else {
