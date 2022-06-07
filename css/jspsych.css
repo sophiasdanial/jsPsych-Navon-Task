@@ -177,7 +177,7 @@
   width: 100%;
   line-height: 1em;
   position: absolute;
-  bottom: 5vh
+  bottom: 1vh
 }
 #jspsych-progressbar-container span {
   font-size: 14px;
