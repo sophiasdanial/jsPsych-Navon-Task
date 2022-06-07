@@ -170,7 +170,7 @@
 
 #jspsych-progressbar-container {
   position: fixed;
-  bottom: 1vh;
+  bottom: 4vh;
   color: #555;
   border-bottom: 1px solid #dedede;
   background-color: #f9f9f9;
@@ -184,7 +184,7 @@
   font-size: 14px;
   padding-right: 14px;
   position: fixed;
-  bottom: 1vh;
+  bottom: 4vh;
 }
 #jspsych-progressbar-outer {
   background-color: #eee;
