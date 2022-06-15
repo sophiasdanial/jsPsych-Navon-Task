@@ -168,7 +168,7 @@ var end_block = {
 
 var global_instructions_block = {
     type: 'html-keyboard-response',
-    stimulus: '<p>For the following trials, please select <i>only</i> the <strong>large</strong> shape</p><br><br><p>Press any key to continue</p>',
+    stimulus: '<p>For the following trials, please select <i>only</i> the <span style="font-size:40px"><strong>large</strong></span> shape</p><br><br><p>Press any key to continue</p>',
     post_trial_gap: 2000
 }
 
