@@ -170,13 +170,13 @@ var end_block = {
 
 var global_instructions_block = {
     type: 'html-keyboard-response',
-    stimulus: '<p style="font-size:23px">For the following trials, please select <i>only</i> the <span style="font-size:40px"><strong>large</strong></span> letter</p><br><br><p>Press any key to continue</p>',
+    stimulus: '<p style="font-size:23px">For the following trials, please select <i>only</i> the <strong>large</strong> letter</p><br><br><p>Press any key to continue</p>',
     post_trial_gap: 2000
 }
 
 var local_instructions_block = {
     type: 'html-keyboard-response',
-    stimulus: '<p style="font-size:23px">For the following trials, please select <i>only</i> the <span style="font-size:40px"><strong>small</strong></span> letter</p><br><br><p>Press any key to continue</p>',
+    stimulus: '<p style="font-size:23px">For the following trials, please select <i>only</i> the <strong>small</strong> letter</p><br><br><p>Press any key to continue</p>',
     post_trial_gap: 2000
 }
 /* define trials */

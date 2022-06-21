@@ -170,7 +170,7 @@ var end_block = {
 
 var local_instructions_block = {
     type: 'html-keyboard-response',
-    stimulus: '<p>For the following trials, please select <i>only</i> the <span style="font-size:40px"><strong>small</strong></span> shape</p><br><br><p>Press any key to continue</p>',
+    stimulus: '<p>For the following trials, please select <i>only</i> the <strong>small</strong> shape</p><br><br><p>Press any key to continue</p>',
     post_trial_gap: 2000
 }
 /* define trials */
