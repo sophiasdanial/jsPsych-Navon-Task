@@ -191,7 +191,7 @@ var local_array = {
     choices: ['x', 'o'],
     stimulus_duration: 50,
     trial_duration: 4000,
-    stimulus_height: 700,
+    stimulus_height: 750,
     maintain_aspect_ratio: true,
     stimulus: jsPsych.timelineVariable('stimulus'),
     data: jsPsych.timelineVariable('data'),
