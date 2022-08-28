@@ -190,7 +190,7 @@ jsPsych.plugins['image-slider-response'] = (function() {
       var slider_container = document.createElement('div');
       slider_container.classList.add("jspsych-image-slider-response-container");
       slider_container.style.position = "relative";
-      slider_container.style.margin = "0 auto 3em auto";
+      slider_container.style.margin = "0 auto 2em auto";
       if(trial.slider_width !== null){
         slider_container.style.width = trial.slider_width.toString()+'px';
       }
@@ -205,7 +205,7 @@ jsPsych.plugins['image-slider-response'] = (function() {
         var offset = (percent_dist_from_center * half_thumb_width)/100;
         html += '<div style="border: 1px solid transparent; display: inline-block; position: absolute; '+
         'left:calc('+percent_of_range+'% - ('+label_width_perc+'% / 2) - '+offset+'px); text-align: center; width: '+label_width_perc+'%;">';
-        html += '<span style="text-align: center; font-size: 80%;">'+trial.labels[j]+'</span>';
+        html += '<span style="text-align: center; font-size: 20px;">'+trial.labels[j]+'</span>';
         html += '</div>'
       }
       html += '</div>';
