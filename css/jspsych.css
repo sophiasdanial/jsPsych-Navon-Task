@@ -75,7 +75,7 @@
   color: #333;
   background-color: #fff;
   border-color: #ccc;
-  position: absolute;
+  position: relative;
   z-index: 3;
 }
 
