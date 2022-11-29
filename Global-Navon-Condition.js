@@ -150,7 +150,7 @@ var test_stimuli = [
 var welcome_block = {
     type: 'html-keyboard-response',
     stimulus: 
-    '<div style="text-align:center"><p>Welcome to Part One.</p><br>\
+    '<div style="text-align:center"><p>Welcome to Part I.</p><br>\
     <p>In this experiment, each trial will present a large shape made out of smaller shapes.</p>\
     <p>For example, you may see a large <strong>X</strong> made out of smaller <strong>O</strong>`s. Or you may see a large <strong>O</strong> made out of smaller <strong>X</strong>`s.</p><br><br>\
     <p>You will be asked to identify either the large shape or the smaller shape.</p><br><br>\
@@ -163,7 +163,7 @@ var welcome_block = {
 var end_block = {
     type: 'html-keyboard-response',
     stimulus:
-    '<div style="text-align:center"><p>Congratulations! You have completed Part One.<br>Press any button to move on to the next part</p>'
+    '<div style="text-align:center"><p>Congratulations! You have completed Part I.<br>Press any button to move on to the next part</p>'
 }
 
 var global_instructions_block = {
