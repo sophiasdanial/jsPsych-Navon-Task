@@ -29,6 +29,12 @@ var preload = {
     on_success: console.log('success')
 }
 
+var enter_fullscreen = {
+    type: 'fullscreen',
+    fullscreen_mode: true
+  }
+timeline.push(enter_fullscreen);
+
 /* define stimuli */
 
 var test_stimuli = [
