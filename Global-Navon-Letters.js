@@ -151,10 +151,10 @@ var test_stimuli = [
 var welcome_block = {
     type: 'html-keyboard-response',
     stimulus: 
-    '<div style="text-align:center;font-size:23px"><p>Welcome to Part Three.</p><br>\
-    <p>This is a <strong>timed</strong> activity. Please try to be as <strong>fast</strong> and <strong>accurate</strong> as possible.</p><br><br>\
-    <p>Similar to Part One, each trial will present a large letter made out of smaller letters.</p>\
-    <p>For example, you may see a large <strong>H</strong> made out of smaller <strong>S</strong>`s. Or you may see a large <strong>S</strong> made out of smaller <strong>H</strong>`s.</p><br><br>\
+    '<div style="text-align:center;font-size:23px"><p>Welcome to Part III.</p><br>\
+    <p>Part III is very similar to Part I. This is a <strong>timed</strong> activity. Please try to be as <strong>fast</strong> and <strong>accurate</strong> as possible.</p><br>\
+    <p>Just like Part I, each trial will present a large letter made out of smaller letters.</p>\
+    <p>However this time, you may see a large <strong>H</strong> made out of smaller <strong>S</strong>`s. Or you may see a large <strong>S</strong> made out of smaller <strong>H</strong>`s.</p><br>\
     <p>You will be asked to identify either the large letter or the smaller letter.</p><br><br>\
     <p>If you select <strong>H</strong>, please press the <strong>H</strong> button on your keyboard.</p>\
     <p>If you select <strong>S</strong>, please press the <strong>S</strong> button on your keyboard.</p><br><br>\
@@ -165,7 +165,7 @@ var welcome_block = {
 var end_block = {
     type: 'html-keyboard-response',
     stimulus:
-    '<div style="text-align:center;font-size:23px"><p>Congratulations! You have completed Part Three.<br>Press any button to move on to your debriefing</p>'
+    '<div style="text-align:center;font-size:23px"><p>Congratulations! You have completed Part III.<br>Press any button to move on to your debriefing</p>'
 }
 
 var global_instructions_block = {
