@@ -289,3 +289,5 @@ var OofX = jsPsych.data.get().filter({
     global_shape: 'black_circles',
     local_shape: 'Xs'
 }).select('rt').values;
+
+var browserprime = jsPsych.data.getInteractionData();

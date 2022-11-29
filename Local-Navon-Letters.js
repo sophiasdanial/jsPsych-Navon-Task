@@ -344,3 +344,5 @@ var SofH = jsPsych.data.get().filter({
     global_shape: 'black_s',
     local_shape: 's'
 }).select('rt').values;
+
+var browserNavonTest = jsPsych.data.getInteractionData();
