@@ -1,6 +1,7 @@
 Qualtrics.SurveyEngine.addOnload(function () {
   //adapted from Kyoung Whan Choe
   
+      
     var qthis = this;
 
     qthis.hideNextButton();
