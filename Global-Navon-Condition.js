@@ -238,371 +238,39 @@ var global_set = {
 
 var global_block1 = {
     timeline: [global_instructions_block, global_set],
-    data: {block:'1'}
-}
-var global_block2 = {
-    timeline: [global_instructions_block, global_set],
-    data: {block:'2'}
-}
-var global_block3 = {
-    timeline: [global_instructions_block, global_set],
-    data: {block:'3'}
-}
-var global_block4 = {
-    timeline: [global_instructions_block, global_set],
-    data: {block:'4'}
-}
-var global_block5 = {
-    timeline: [global_instructions_block, global_set],
-    data: {block:'5'}
-}
-var global_block6 = {
-    timeline: [global_instructions_block, global_set],
-    data: {block:'6'}
-}
-var global_block7 = {
-    timeline: [global_instructions_block, global_set],
-    data: {block:'7'}
-}
-var global_block8 = {
-    timeline: [global_instructions_block, global_set],
-    data: {block:'8'}
-}
-var global_block9 = {
-    timeline: [global_instructions_block, global_set],
-    data: {block:'9'}
-}
-var global_block10 = {
-    timeline: [global_instructions_block, global_set],
-    data: {block:'10'}
+    repetitions: 10
 }
 /* set conditional timelines */
 timeline.push(preload);
 timeline.push(welcome_block);
-timeline.push(global_block1);
-timeline.push(global_block2);
-timeline.push(global_block3);
-timeline.push(global_block4);
-timeline.push(global_block5);
-timeline.push(global_block6);
-timeline.push(global_block7);
-timeline.push(global_block8);
-timeline.push(global_block9);
-timeline.push(global_block10);
+timeline.push(global_block);
 timeline.push(end_block);
 
 /* define results */
 var total_rt = jsPsych.data.get().select('rt').sum();
-
-///block 1///
-var correct_trials1 = jsPsych.data.get().filter({
+var correct_trials = jsPsych.data.get().filter({
     correct: true,
-    block: '1'
 }).count();
-var wrong_trials1 = jsPsych.data.get().filter({
+var wrong_trials = jsPsych.data.get().filter({
     correct: false,
-    block: '1',
 }).count();
-var error_congruent1 = jsPsych.data.get().filter({
+var error_congruent = jsPsych.data.get().filter({
     correct: false,
-    stim_type: 'congruent',
-    block: '1',
+    stim_type: 'congruent'
 }).count();
-var error_incongruent1 = jsPsych.data.get().filter({
+var error_incongruent = jsPsych.data.get().filter({
     correct: false,
     stim_type: 'incongruent',
-    block: '1',
 }).count();
 ///////trial-by-trial capture for Qualtrics *per block////////
-var c_raw1 = jsPsych.data.get().filter({
+var c_raw = jsPsych.data.get().filter({
     correct: true,
-    stim_type: 'congruent',
-    block: '1',
+    stim_type: 'congruent'
 }).select('rt').values;
-var in_raw1 = jsPsych.data.get().filter({
+var in_raw = jsPsych.data.get().filter({
     correct: true,
-    stim_type: 'incongruent',
-    block: '1',
-}).select('rt').values;
-
-///block 2///
-var correct_trials2 = jsPsych.data.get().filter({
-    correct: true,
-    block: '2'
-}).count();
-var wrong_trials2 = jsPsych.data.get().filter({
-    correct: false,
-    block: '2',
-}).count();
-var error_congruent2 = jsPsych.data.get().filter({
-    correct: false,
-    stim_type: 'congruent',
-    block: '2',
-}).count();
-var error_incongruent2 = jsPsych.data.get().filter({
-    correct: false,
-    stim_type: 'incongruent',
-    block: '2',
-}).count();
-///////trial-by-trial capture for Qualtrics *per block////////
-var c_raw2 = jsPsych.data.get().filter({
-    correct: true,
-    stim_type: 'congruent',
-    block: '2',
-}).select('rt').values;
-var in_raw2 = jsPsych.data.get().filter({
-    correct: true,
-    stim_type: 'incongruent',
-    block: '2',
-}).select('rt').values;
-
-///block 3///
-var correct_trials3 = jsPsych.data.get().filter({
-    correct: true,
-    block: '3'
-}).count();
-var wrong_trials3 = jsPsych.data.get().filter({
-    correct: false,
-    block: '3',
-}).count();
-var error_congruent3 = jsPsych.data.get().filter({
-    correct: false,
-    stim_type: 'congruent',
-    block: '3',
-}).count();
-var error_incongruent3 = jsPsych.data.get().filter({
-    correct: false,
-    stim_type: 'incongruent',
-    block: '3',
-}).count();
-///////trial-by-trial capture for Qualtrics *per block////////
-var c_raw3 = jsPsych.data.get().filter({
-    correct: true,
-    stim_type: 'congruent',
-    block: '3',
-}).select('rt').values;
-var in_raw3 = jsPsych.data.get().filter({
-    correct: true,
-    stim_type: 'incongruent',
-    block: '3',
-}).select('rt').values;
-
-///block 4///
-var correct_trials4 = jsPsych.data.get().filter({
-    correct: true,
-    block: '4'
-}).count();
-var wrong_trials4 = jsPsych.data.get().filter({
-    correct: false,
-    block: '4',
-}).count();
-var error_congruent4 = jsPsych.data.get().filter({
-    correct: false,
-    stim_type: 'congruent',
-    block: '4',
-}).count();
-var error_incongruent4 = jsPsych.data.get().filter({
-    correct: false,
-    stim_type: 'incongruent',
-    block: '4',
-}).count();
-///////trial-by-trial capture for Qualtrics *per block////////
-var c_raw4 = jsPsych.data.get().filter({
-    correct: true,
-    stim_type: 'congruent',
-    block: '4',
-}).select('rt').values;
-var in_raw4 = jsPsych.data.get().filter({
-    correct: true,
-    stim_type: 'incongruent',
-    block: '4',
-}).select('rt').values;
-
-///block 5///
-var correct_trials5 = jsPsych.data.get().filter({
-    correct: true,
-    block: '5'
-}).count();
-var wrong_trials5 = jsPsych.data.get().filter({
-    correct: false,
-    block: '5',
-}).count();
-var error_congruent5 = jsPsych.data.get().filter({
-    correct: false,
-    stim_type: 'congruent',
-    block: '5',
-}).count();
-var error_incongruent5 = jsPsych.data.get().filter({
-    correct: false,
-    stim_type: 'incongruent',
-    block: '5',
-}).count();
-///////trial-by-trial capture for Qualtrics *per block////////
-var c_raw5 = jsPsych.data.get().filter({
-    correct: true,
-    stim_type: 'congruent',
-    block: '5',
-}).select('rt').values;
-var in_raw5 = jsPsych.data.get().filter({
-    correct: true,
-    stim_type: 'incongruent',
-    block: '5',
-}).select('rt').values;
-
-///block 6///
-var correct_trials6 = jsPsych.data.get().filter({
-    correct: true,
-    block: '6'
-}).count();
-var wrong_trials6 = jsPsych.data.get().filter({
-    correct: false,
-    block: '6',
-}).count();
-var error_congruent6 = jsPsych.data.get().filter({
-    correct: false,
-    stim_type: 'congruent',
-    block: '6',
-}).count();
-var error_incongruent6 = jsPsych.data.get().filter({
-    correct: false,
-    stim_type: 'incongruent',
-    block: '6',
-}).count();
-///////trial-by-trial capture for Qualtrics *per block////////
-var c_raw6 = jsPsych.data.get().filter({
-    correct: true,
-    stim_type: 'congruent',
-    block: '6',
-}).select('rt').values;
-var in_raw6 = jsPsych.data.get().filter({
-    correct: true,
-    stim_type: 'incongruent',
-    block: '6',
-}).select('rt').values;
-
-///block 7///
-var correct_trials7 = jsPsych.data.get().filter({
-    correct: true,
-    block: '7'
-}).count();
-var wrong_trials7 = jsPsych.data.get().filter({
-    correct: false,
-    block: '7',
-}).count();
-var error_congruent7 = jsPsych.data.get().filter({
-    correct: false,
-    stim_type: 'congruent',
-    block: '7',
-}).count();
-var error_incongruent7 = jsPsych.data.get().filter({
-    correct: false,
-    stim_type: 'incongruent',
-    block: '7',
-}).count();
-///////trial-by-trial capture for Qualtrics *per block////////
-var c_raw7 = jsPsych.data.get().filter({
-    correct: true,
-    stim_type: 'congruent',
-    block: '7',
-}).select('rt').values;
-var in_raw7 = jsPsych.data.get().filter({
-    correct: true,
-    stim_type: 'incongruent',
-    block: '7',
-}).select('rt').values;
-
-///block 8///
-var correct_trials8 = jsPsych.data.get().filter({
-    correct: true,
-    block: '8'
-}).count();
-var wrong_trials8 = jsPsych.data.get().filter({
-    correct: false,
-    block: '8',
-}).count();
-var error_congruent8 = jsPsych.data.get().filter({
-    correct: false,
-    stim_type: 'congruent',
-    block: '8',
-}).count();
-var error_incongruent8 = jsPsych.data.get().filter({
-    correct: false,
-    stim_type: 'incongruent',
-    block: '8',
-}).count();
-///////trial-by-trial capture for Qualtrics *per block////////
-var c_raw8 = jsPsych.data.get().filter({
-    correct: true,
-    stim_type: 'congruent',
-    block: '8',
-}).select('rt').values;
-var in_raw8 = jsPsych.data.get().filter({
-    correct: true,
-    stim_type: 'incongruent',
-    block: '8',
-}).select('rt').values;
-
-///block 9///
-var correct_trials9 = jsPsych.data.get().filter({
-    correct: true,
-    block: '9'
-}).count();
-var wrong_trials9 = jsPsych.data.get().filter({
-    correct: false,
-    block: '9',
-}).count();
-var error_congruent9 = jsPsych.data.get().filter({
-    correct: false,
-    stim_type: 'congruent',
-    block: '9',
-}).count();
-var error_incongruent9 = jsPsych.data.get().filter({
-    correct: false,
-    stim_type: 'incongruent',
-    block: '9',
-}).count();
-///////trial-by-trial capture for Qualtrics *per block////////
-var c_raw9 = jsPsych.data.get().filter({
-    correct: true,
-    stim_type: 'congruent',
-    block: '9',
-}).select('rt').values;
-var in_raw9 = jsPsych.data.get().filter({
-    correct: true,
-    stim_type: 'incongruent',
-    block: '9',
-}).select('rt').values;
-
-///block 10///
-var correct_trials10 = jsPsych.data.get().filter({
-    correct: true,
-    block: '10'
-}).count();
-var wrong_trials10 = jsPsych.data.get().filter({
-    correct: false,
-    block: '10',
-}).count();
-var error_congruent10 = jsPsych.data.get().filter({
-    correct: false,
-    stim_type: 'congruent',
-    block: '10',
-}).count();
-var error_incongruent10 = jsPsych.data.get().filter({
-    correct: false,
-    stim_type: 'incongruent',
-    block: '10',
-}).count();
-///////trial-by-trial capture for Qualtrics *per block////////
-var c_raw10 = jsPsych.data.get().filter({
-    correct: true,
-    stim_type: 'congruent',
-    block: '10',
-}).select('rt').values;
-var in_raw10 = jsPsych.data.get().filter({
-    correct: true,
-    stim_type: 'incongruent',
-    block: '10',
+    stim_type: 'incongruent'
 }).select('rt').values;
 
 // browser size capture
-var browserprime = jsPsych.data.getInteractionData();
+var browserprime = jsPsych.data.getInteractionData().select('type').values();

@@ -262,18 +262,15 @@ var local_block = {
     timeline: [local_instructions_block, local_set]
 }
 
+/* set conditional timelines */
+var global_start_node = {
+    timeline: [global_block, local_block],
+    repetitions: 5
+}
+
 timeline.push(preload);
 timeline.push(welcome_block);
-timeline.push(global_block);
-timeline.push(local_block);
-timeline.push(global_block);
-timeline.push(local_block);
-timeline.push(global_block);
-timeline.push(local_block);
-timeline.push(global_block);
-timeline.push(local_block);
-timeline.push(global_block);
-timeline.push(local_block);
+timeline.push(global_start_node);
 timeline.push(end_block);
 
 /* define results */
@@ -329,5 +326,6 @@ var global_c_raw = jsPsych.data.get().filter({
     stim_type: 'congruent'
 }).select('rt').values;
 // browser size capture
-var browserNavonTest = jsPsych.data.getInteractionData();
+var browserNavonTest = jsPsych.data.getInteractionData().select('type').values();
+
 
