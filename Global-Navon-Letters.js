@@ -325,7 +325,3 @@ var global_c_raw = jsPsych.data.get().filter({
     test_type: 'global',
     stim_type: 'congruent'
 }).select('rt').values;
-// browser size capture
-var browserNavonTest = jsPsych.data.getInteractionData().select('type').values();
-
-

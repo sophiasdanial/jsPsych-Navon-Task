@@ -236,7 +236,7 @@ var global_set = {
     randomize_order: true
 }
 
-var global_block1 = {
+var global_block = {
     timeline: [global_instructions_block, global_set],
     repetitions: 10
 }
@@ -272,5 +272,3 @@ var in_raw = jsPsych.data.get().filter({
     stim_type: 'incongruent'
 }).select('rt').values;
 
-// browser size capture
-var browserprime = jsPsych.data.getInteractionData().select('type').values();

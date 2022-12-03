@@ -272,5 +272,3 @@ var in_raw = jsPsych.data.get().filter({
     stim_type: 'incongruent'
 }).select('rt').values;
 
-// browser size capture
-var browserprime = jsPsych.data.getInteractionData().select('type').values();
