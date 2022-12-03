@@ -304,73 +304,30 @@ var error_localincongruent = jsPsych.data.get().filter({
     stim_type: 'incongruent',
     test_type: 'local'
 }).count();
-var rt = jsPsych.data.get().filter({
-    correct: true
-}).select('rt').mean();
-var global_congruent_rt = jsPsych.data.get().filter({
-    correct: true,
-    stim_type: 'congruent',
-    test_type: 'global'
-}).select('rt').mean();
-var local_congruent_rt = jsPsych.data.get().filter({
-    correct: true,
-    stim_type: 'congruent',
-    test_type: 'local'
-}).select('rt').mean();
-var global_incongruent_rt = jsPsych.data.get().filter({
-    correct: true,
-    stim_type: 'incongruent',
-    test_type: 'global'
-}).select('rt').mean();
-var local_incongruent_rt = jsPsych.data.get().filter({
-    correct: true,
-    stim_type: 'incongruent',
-    test_type: 'local'
-}).select('rt').mean();
+var total_rt = jsPsych.data.get().filter({
+    correct: true, 
+}).select('rt').sum();
 ///////trial-by-trial capture for Qualtrics////////
-var HofH = jsPsych.data.get().filter({
+var local_in_raw = jsPsych.data.get().filter({
     correct: true,
-    global_shape: 'black_h',
-    local_shape: 'h'
+    test_type: 'local',
+    stim_type: 'incongruent'
 }).select('rt').values;
-var HofS = jsPsych.data.get().filter({
+var local_c_raw = jsPsych.data.get().filter({
     correct: true,
-    global_shape: 'black_h',
-    local_shape: 's'
+    test_type: 'local',
+    stim_type: 'congruent'
 }).select('rt').values;
-var SofS = jsPsych.data.get().filter({
+var global_in_raw = jsPsych.data.get().filter({
     correct: true,
-    global_shape: 'black_s',
-    local_shape: 's'
+    test_type: 'global',
+    stim_type: 'incongruent'
 }).select('rt').values;
-var SofH = jsPsych.data.get().filter({
+var global_c_raw = jsPsych.data.get().filter({
     correct: true,
-    global_shape: 'black_s',
-    local_shape: 's'
+    test_type: 'global',
+    stim_type: 'congruent'
 }).select('rt').values;
-
+// browser size capture
 var browserNavonTest = jsPsych.data.getInteractionData();
 
-var Lc_sd = jsPsych.data.get().filter({
-    correct: true,
-    test_type: 'local',
-    stim_type: 'congruent',
-}).select('rt').sd();
-
-var Lic_sd = jsPsych.data.get().filter({
-    correct: true,
-    test_type: 'local',
-    stim_type: 'incongruent',
-}).select('rt').sd();
-
-var Gc_sd = jsPsych.data.get().filter({
-    correct: true,
-    test_type: 'global',
-    stim_type: 'congruent',
-}).select('rt').sd();
-
-var GIc_sd = jsPsych.data.get().filter({
-    correct: true,
-    test_type: 'global',
-    stim_type: 'incongruent',
-}).select('rt').sd();
