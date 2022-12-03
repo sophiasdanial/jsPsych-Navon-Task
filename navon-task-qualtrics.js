@@ -111,6 +111,29 @@ Qualtrics.SurveyEngine.addOnload(function () {
                     global_shape: 'black_s',
                     local_shape: 's'
                 }).select('rt').values;
+                var Lc_sd = jsPsych.data.get().filter({
+                    correct: true,
+                    test_type: 'local',
+                    stim_type: 'congruent',
+                }).select('rt').sd();
+                
+                var Lic_sd = jsPsych.data.get().filter({
+                    correct: true,
+                    test_type: 'local',
+                    stim_type: 'incongruent',
+                }).select('rt').sd();
+                
+                var Gc_sd = jsPsych.data.get().filter({
+                    correct: true,
+                    test_type: 'global',
+                    stim_type: 'congruent',
+                }).select('rt').sd();
+                
+                var GIc_sd = jsPsych.data.get().filter({
+                    correct: true,
+                    test_type: 'global',
+                    stim_type: 'incongruent',
+                }).select('rt').sd();
 
                 Qualtrics.SurveyEngine.setEmbeddedData("rt", rt);
                 Qualtrics.SurveyEngine.setEmbeddedData("error", wrong_trials);
@@ -127,6 +150,10 @@ Qualtrics.SurveyEngine.addOnload(function () {
                 Qualtrics.SurveyEngine.setEmbeddedData("HofS", HofS);
                 Qualtrics.SurveyEngine.setEmbeddedData("SofS", SofS);
                 Qualtrics.SurveyEngine.setEmbeddedData("SofH", SofH);
+                Qualtrics.SurveyEngine.setEmbeddedData("local_in_sd", Lic_sd);
+                Qualtrics.SurveyEngine.setEmbeddedData("local_c_sd", Lc_sd);
+                Qualtrics.SurveyEngine.setEmbeddedData("global_in_sd", GIc_sd);
+                Qualtrics.SurveyEngine.setEmbeddedData("global_c_sd", Gc_sd);
 
                 ////below for prime condition
 

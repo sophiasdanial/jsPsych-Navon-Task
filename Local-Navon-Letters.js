@@ -346,3 +346,27 @@ var SofH = jsPsych.data.get().filter({
 }).select('rt').values;
 
 var browserNavonTest = jsPsych.data.getInteractionData();
+
+var Lc_sd = jsPsych.data.get().filter({
+    correct: true,
+    test_type: 'local',
+    stim_type: 'congruent',
+}).select('rt').sd();
+
+var Lic_sd = jsPsych.data.get().filter({
+    correct: true,
+    test_type: 'local',
+    stim_type: 'incongruent',
+}).select('rt').sd();
+
+var Gc_sd = jsPsych.data.get().filter({
+    correct: true,
+    test_type: 'global',
+    stim_type: 'congruent',
+}).select('rt').sd();
+
+var GIc_sd = jsPsych.data.get().filter({
+    correct: true,
+    test_type: 'global',
+    stim_type: 'incongruent',
+}).select('rt').sd();
