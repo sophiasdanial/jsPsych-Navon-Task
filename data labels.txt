@@ -1,0 +1,46 @@
+Codes for Navon Task
+
+NP - Navon Prime
+NT - Navon Test
+
+<Navon Test>
+
+Error - no. of wrong trials out of 160
+Correct - no. of correct trials out of 160
+
+wrong_globalincon - no. of wrong answers for global incongruent trials out of 40
+wrong_globalcon - no. of wrong answers for global congruent trials out of 40
+wrong_localincon - no. of wrong answers for local incongruent trials out of 40
+wrong_localcon - no. of wrong answers for local congruent trials out of 40
+
+total_rt - total time taken for entire test
+
+(Below: no. of values should match no. of correct trials)
+local_I_raw - raw values of time taken for correct answers in local incongruent trials 
+local_C_raw - raw values of time taken for correct answers in local congruent trials 
+global_I_raw - raw values of time taken for correct answers in global incongruent trials 
+global_C_raw - raw values of time taken for correct answers in global congruent trials 
+
+<Navon Prime>
+
+NP_wrong - no. of trials that either exceeded 4000ms or were wrong
+NP_correct - no. of correct trials
+NP_totalRT - total time taken for prime
+
+wrong_incon - no. of wrong answers (or exceeded) for incongruent trials
+wrong_con - no. of wrong answers (or exceeded) for congruent trials
+
+con_rt - raw values of time taken for correct answers in congruent trials
+incon_rt - raw values of time taken for correct answers in incongruent trials 
+
+<Misc>
+
+NP/NT/FBbrowser_interaction - 'active' indicates that changes were made to content visibility during these specific phases i.e. change tabs, minimised window. Left blank if otherwise.
+
+browserWidth - width of browser. Required minimum is 700px
+browserHeight - height of browser. Required minimum is 1400px
+
+
+
+
+
